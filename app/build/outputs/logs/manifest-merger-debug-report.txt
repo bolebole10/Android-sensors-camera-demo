@@ -1,0 +1,608 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:2:1-39:12
+MERGED from [androidx.camera:camera-video:1.3.4] /home/bojan/.gradle/caches/8.9/transforms/1c0a1a30ef9346361d6d0f356344839d/transformed/camera-video-1.3.4/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.camera:camera-view:1.3.4] /home/bojan/.gradle/caches/8.9/transforms/6606bac38b719e879a4a4335da281249/transformed/camera-view-1.3.4/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.camera:camera-lifecycle:1.3.4] /home/bojan/.gradle/caches/8.9/transforms/f2a9b49848017d761a60b5035b63eaf3/transformed/camera-lifecycle-1.3.4/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.camera:camera-camera2:1.3.4] /home/bojan/.gradle/caches/8.9/transforms/21b8ab6fbc65baa8d892caf48adcdc72/transformed/camera-camera2-1.3.4/AndroidManifest.xml:17:1-36:12
+MERGED from [androidx.camera:camera-core:1.3.4] /home/bojan/.gradle/caches/8.9/transforms/7e6d513b2e3f802bc49b6ab8e9470151/transformed/camera-core-1.3.4/AndroidManifest.xml:17:1-36:12
+MERGED from [com.google.mlkit:barcode-scanning:17.3.0] /home/bojan/.gradle/caches/8.9/transforms/46928271451fea4970cc2f494b6c2eee/transformed/barcode-scanning-17.3.0/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] /home/bojan/.gradle/caches/8.9/transforms/940c805938920ce646d6a2b81bf7a0f0/transformed/play-services-mlkit-barcode-scanning-18.3.1/AndroidManifest.xml:2:1-18:12
+MERGED from [com.google.mlkit:barcode-scanning-common:17.0.0] /home/bojan/.gradle/caches/8.9/transforms/5a87cf3ce813476de7ef242230ff7d16/transformed/barcode-scanning-common-17.0.0/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.mlkit:vision-common:17.3.0] /home/bojan/.gradle/caches/8.9/transforms/43ac5f659b093b55aeed51109667977d/transformed/vision-common-17.3.0/AndroidManifest.xml:2:1-18:12
+MERGED from [com.google.mlkit:common:18.11.0] /home/bojan/.gradle/caches/8.9/transforms/ffe02f269ac596d52d7e4f4f4bff5e52/transformed/common-18.11.0/AndroidManifest.xml:2:1-26:12
+MERGED from [com.google.android.gms:play-services-base:18.5.0] /home/bojan/.gradle/caches/8.9/transforms/bd87747d8554d749768f273d171e7182/transformed/play-services-base-18.5.0/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.mlkit:vision-interfaces:16.3.0] /home/bojan/.gradle/caches/8.9/transforms/25fcda278ebdf91ff684742629a44e77/transformed/vision-interfaces-16.3.0/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] /home/bojan/.gradle/caches/8.9/transforms/631830dbfe7ca5d4c2001a7856551eea/transformed/play-services-tasks-18.2.0/AndroidManifest.xml:2:1-5:12
+MERGED from [com.google.android.gms:play-services-basement:18.4.0] /home/bojan/.gradle/caches/8.9/transforms/e934390019932857707146f7f7a2ba41/transformed/play-services-basement-18.4.0/AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.navigation:navigation-common:2.8.0] /home/bojan/.gradle/caches/8.9/transforms/280098f945b3586fd22d1e353bdc5c6e/transformed/navigation-common-2.8.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-runtime:2.8.0] /home/bojan/.gradle/caches/8.9/transforms/a76a3a967c0ad4262108d6c44ed3ffd4/transformed/navigation-runtime-2.8.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-common-ktx:2.8.0] /home/bojan/.gradle/caches/8.9/transforms/a8c99c0a111ff93412a84733a90de1a1/transformed/navigation-common-ktx-2.8.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.8.0] /home/bojan/.gradle/caches/8.9/transforms/1c4670892006fbc51839ad6800fe2f67/transformed/navigation-runtime-ktx-2.8.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-compose:2.8.0] /home/bojan/.gradle/caches/8.9/transforms/5d4f1f8c6cd06d6f516e33c0bd36d262/transformed/navigation-compose-2.8.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material3:material3-android:1.3.0] /home/bojan/.gradle/caches/8.9/transforms/6afe95e8eb08c787a207c3bb1798ffcc/transformed/material3-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.material:material-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/518fb47e8e9a15fef34d6aa6a9f66efc/transformed/material-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-core-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/3aa25495ecbcd0d98c937c438cfe02ca/transformed/animation-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-ripple-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/72aede3458a8bfe7d6fbed107a2212d7/transformed/material-ripple-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/d0b1f194305b1e5e635884dd1fdea9f8/transformed/animation-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/a39ae953be57b4174a86f48bb2c6af2a/transformed/foundation-layout-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/b07b391597f1afa030ebf4aa350a119d/transformed/foundation-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/6f5251000a06d4ef5b97f73424602f9b/transformed/ui-tooling-data-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-unit-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/da20858c3eba73c353e72840e27ab527/transformed/ui-unit-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-geometry-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/7bb2a3abd9c5c24a24144e61ff055e57/transformed/ui-geometry-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-util-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/681825daca6c05d2a96ee0983c3fe090/transformed/ui-util-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-text-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/b58d7c5a6d22d06ccf1817676db48bcf/transformed/ui-text-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/5762de282f0a1d485724c4ad7457c7e8/transformed/ui-tooling-preview-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.ui:ui-graphics-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/4a945f6853b19079128d76fdfa3fbf87/transformed/ui-graphics-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /home/bojan/.gradle/caches/8.9/transforms/5235dfd1c716f1be9ec699fa2812abf6/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.appcompat:appcompat:1.6.1] /home/bojan/.gradle/caches/8.9/transforms/76e9fa9ebed7aece66b959b131f23bfb/transformed/appcompat-1.6.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] /home/bojan/.gradle/caches/8.9/transforms/2457a758fbd01b366cb3670b3b5c51b9/transformed/emoji2-views-helper-1.3.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.3.0] /home/bojan/.gradle/caches/8.9/transforms/f84b1b410a7a7eaef9354d750e38092d/transformed/emoji2-1.3.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/bf2a60cf8dfd68911c99ed8586640170/transformed/lifecycle-process-2.8.4/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.fragment:fragment:1.3.6] /home/bojan/.gradle/caches/8.9/transforms/7c2a624be7d6af18bebd355712083752/transformed/fragment-1.3.6/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/31efee00f22a18b6c2a0f01ec98819a7/transformed/lifecycle-viewmodel-savedstate-2.8.4/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /home/bojan/.gradle/caches/8.9/transforms/618e745ce970d797051e9ed72c1adc28/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/15231081e6219bb701435ecb19dd9a30/transformed/lifecycle-viewmodel-2.8.4/AndroidManifest.xml:2:1-5:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/ea210aaa39b22265b8bc2616a21f7e84/transformed/lifecycle-viewmodel-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/7214d780195f48b57921c7ff4d750f56/transformed/lifecycle-livedata-core-ktx-2.8.4/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/736af319f1c4b43eec8c6bce784770d6/transformed/lifecycle-livedata-core-2.8.4/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /home/bojan/.gradle/caches/8.9/transforms/815ab9f9f1dacd949426467f549af0c5/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.2.1] /home/bojan/.gradle/caches/8.9/transforms/5d5a0441fcd9a846e8f53966cf6294c2/transformed/savedstate-1.2.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/bf12b43e65c88d659d2dc2081da50064/transformed/lifecycle-runtime-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/3789ec3cd9f68850087555127a391b86/transformed/lifecycle-viewmodel-ktx-2.8.4/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/755b6f0d7d1d72fd4abe60b176d0fddf/transformed/lifecycle-livedata-2.8.4/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/050e132f3a5619a66c9a05dd9bad26ff/transformed/lifecycle-runtime-compose-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/fe7c5c6621c19bb740159c0266fdd2c8/transformed/lifecycle-runtime-ktx-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/9ca82fc838e0f81c727f27905a47fdfe/transformed/lifecycle-viewmodel-compose-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-icons-extended-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/5de41db243c24fab103760c7cff402fe/transformed/material-icons-extended-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/8c053027e24cd2c0979edd22b26a0ea6/transformed/material-icons-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/486adb9e394dff7f383b9a39163945d7/transformed/ui-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/7d8bd4c218d65704400bde8c44668649/transformed/ui-tooling-release/AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.activity:activity-compose:1.9.2] /home/bojan/.gradle/caches/8.9/transforms/897c883725e8ce55787d59763093fe77/transformed/activity-compose-1.9.2/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity-ktx:1.9.2] /home/bojan/.gradle/caches/8.9/transforms/e5b1ba906ca7da8aa93baec28c432096/transformed/activity-ktx-1.9.2/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity:1.9.2] /home/bojan/.gradle/caches/8.9/transforms/d5c25cafcbd6e8670eff19a828455226/transformed/activity-1.9.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.autofill:autofill:1.0.0] /home/bojan/.gradle/caches/8.9/transforms/5a09f0ea50b2ce1cbba0fe7fea7b7677/transformed/autofill-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.graphics:graphics-path:1.0.1] /home/bojan/.gradle/caches/8.9/transforms/ed23e4e24a23ab695efb46bbefeb9ea3/transformed/graphics-path-1.0.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/bojan/.gradle/caches/8.9/transforms/c4ec11cc763ccb25f914ded7d81786ed/transformed/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/bojan/.gradle/caches/8.9/transforms/a2c823dd80b21a01cef73d88429adbe4/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/bojan/.gradle/caches/8.9/transforms/3c20b51a2efd4b751a6e1df7554022d4/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/bojan/.gradle/caches/8.9/transforms/738c16c54b150bb6ba4c7bb14f5ddb17/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.0.0] /home/bojan/.gradle/caches/8.9/transforms/9fe0d12ed7520151e67b6995f876340a/transformed/customview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.13.1] /home/bojan/.gradle/caches/8.9/transforms/bfd0a63e70162e088ed79a97474a36e1/transformed/core-1.13.1/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /home/bojan/.gradle/caches/8.9/transforms/1f7d716031a9bf5e1df6f5d868a01368/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.core:core-ktx:1.13.1] /home/bojan/.gradle/caches/8.9/transforms/85a2242dc5e00ceb6c06dc513d1c9a47/transformed/core-ktx-1.13.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/b94efa24fa2d271b00494a243cac0ba3/transformed/runtime-saveable-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/ca333d856a1627b2ca88172b46aaad23/transformed/runtime-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /home/bojan/.gradle/caches/8.9/transforms/e90a9bbf1cf913aad2beade1919c69cc/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/bojan/.gradle/caches/8.9/transforms/c4cda2d5393ce8dad711c5422bef67a2/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.exifinterface:exifinterface:1.3.2] /home/bojan/.gradle/caches/8.9/transforms/2e02e4f7acbc77503204224aa6e805c2/transformed/exifinterface-1.3.2/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/bojan/.gradle/caches/8.9/transforms/4bc7c595cb5c13235b5ba644f5119047/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /home/bojan/.gradle/caches/8.9/transforms/2e651f932e358610797dc63d95f45172/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:15:1-38:12
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] /home/bojan/.gradle/caches/8.9/transforms/5bf8029ca29c7788f5657a9f6b8b128a/transformed/transport-runtime-2.2.6/AndroidManifest.xml:15:1-41:12
+MERGED from [com.google.android.datatransport:transport-api:2.2.1] /home/bojan/.gradle/caches/8.9/transforms/274635680e9fc8f97e41e214de8556c1/transformed/transport-api-2.2.1/AndroidManifest.xml:15:1-22:12
+MERGED from [com.google.firebase:firebase-components:16.1.0] /home/bojan/.gradle/caches/8.9/transforms/fc3148df01d6146388de1258be6182f1/transformed/firebase-components-16.1.0/AndroidManifest.xml:15:1-23:12
+MERGED from [com.google.firebase:firebase-encoders-json:17.1.0] /home/bojan/.gradle/caches/8.9/transforms/8640cccf0837adf8c9496499421abe80/transformed/firebase-encoders-json-17.1.0/AndroidManifest.xml:15:1-23:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /home/bojan/.gradle/caches/8.9/transforms/b576cf6e7e9771293825ee8ffb80e2c0/transformed/core-runtime-2.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/bojan/.gradle/caches/8.9/transforms/4f744d00d25c984d190b0f6fb0bdf4c0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/bojan/.gradle/caches/8.9/transforms/82e6d981da32b76c15bbf6f1059ad1f6/transformed/startup-runtime-1.1.1/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.0.0] /home/bojan/.gradle/caches/8.9/transforms/d0fcfd992d27c14864f8dfa5de634add/transformed/tracing-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/bojan/.gradle/caches/8.9/transforms/850194febd27f54a0641b789645ba221/transformed/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.odml:image:1.0.0-beta1] /home/bojan/.gradle/caches/8.9/transforms/3f9749e191331dbec1f2266d255b01fc/transformed/image-1.0.0-beta1/AndroidManifest.xml:2:1-9:12
+	package
+		INJECTED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.CAMERA
+ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:4:5-65
+	android:name
+		ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:4:22-62
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:5:5-71
+	android:name
+		ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:5:22-68
+uses-permission#android.permission.VIBRATE
+ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:6:5-66
+	android:name
+		ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:6:22-63
+uses-feature#android.hardware.camera
+ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:12:5-85
+	android:required
+		ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:12:58-82
+	android:name
+		ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:12:19-57
+uses-feature#android.hardware.sensor.accelerometer
+ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:13:5-99
+	android:required
+		ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:13:72-96
+	android:name
+		ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:13:19-71
+uses-feature#android.hardware.sensor.compass
+ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:14:5-93
+	android:required
+		ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:14:66-90
+	android:name
+		ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:14:19-65
+uses-feature#android.hardware.sensor.light
+ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:15:5-91
+	android:required
+		ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:15:64-88
+	android:name
+		ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:15:19-63
+application
+ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:17:5-37:19
+INJECTED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:17:5-37:19
+MERGED from [androidx.camera:camera-camera2:1.3.4] /home/bojan/.gradle/caches/8.9/transforms/21b8ab6fbc65baa8d892caf48adcdc72/transformed/camera-camera2-1.3.4/AndroidManifest.xml:23:5-34:19
+MERGED from [androidx.camera:camera-camera2:1.3.4] /home/bojan/.gradle/caches/8.9/transforms/21b8ab6fbc65baa8d892caf48adcdc72/transformed/camera-camera2-1.3.4/AndroidManifest.xml:23:5-34:19
+MERGED from [androidx.camera:camera-core:1.3.4] /home/bojan/.gradle/caches/8.9/transforms/7e6d513b2e3f802bc49b6ab8e9470151/transformed/camera-core-1.3.4/AndroidManifest.xml:23:5-34:19
+MERGED from [androidx.camera:camera-core:1.3.4] /home/bojan/.gradle/caches/8.9/transforms/7e6d513b2e3f802bc49b6ab8e9470151/transformed/camera-core-1.3.4/AndroidManifest.xml:23:5-34:19
+MERGED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] /home/bojan/.gradle/caches/8.9/transforms/940c805938920ce646d6a2b81bf7a0f0/transformed/play-services-mlkit-barcode-scanning-18.3.1/AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] /home/bojan/.gradle/caches/8.9/transforms/940c805938920ce646d6a2b81bf7a0f0/transformed/play-services-mlkit-barcode-scanning-18.3.1/AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.mlkit:vision-common:17.3.0] /home/bojan/.gradle/caches/8.9/transforms/43ac5f659b093b55aeed51109667977d/transformed/vision-common-17.3.0/AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.mlkit:vision-common:17.3.0] /home/bojan/.gradle/caches/8.9/transforms/43ac5f659b093b55aeed51109667977d/transformed/vision-common-17.3.0/AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.mlkit:common:18.11.0] /home/bojan/.gradle/caches/8.9/transforms/ffe02f269ac596d52d7e4f4f4bff5e52/transformed/common-18.11.0/AndroidManifest.xml:8:5-24:19
+MERGED from [com.google.mlkit:common:18.11.0] /home/bojan/.gradle/caches/8.9/transforms/ffe02f269ac596d52d7e4f4f4bff5e52/transformed/common-18.11.0/AndroidManifest.xml:8:5-24:19
+MERGED from [com.google.android.gms:play-services-base:18.5.0] /home/bojan/.gradle/caches/8.9/transforms/bd87747d8554d749768f273d171e7182/transformed/play-services-base-18.5.0/AndroidManifest.xml:4:5-6:19
+MERGED from [com.google.android.gms:play-services-base:18.5.0] /home/bojan/.gradle/caches/8.9/transforms/bd87747d8554d749768f273d171e7182/transformed/play-services-base-18.5.0/AndroidManifest.xml:4:5-6:19
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] /home/bojan/.gradle/caches/8.9/transforms/631830dbfe7ca5d4c2001a7856551eea/transformed/play-services-tasks-18.2.0/AndroidManifest.xml:4:5-20
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] /home/bojan/.gradle/caches/8.9/transforms/631830dbfe7ca5d4c2001a7856551eea/transformed/play-services-tasks-18.2.0/AndroidManifest.xml:4:5-20
+MERGED from [com.google.android.gms:play-services-basement:18.4.0] /home/bojan/.gradle/caches/8.9/transforms/e934390019932857707146f7f7a2ba41/transformed/play-services-basement-18.4.0/AndroidManifest.xml:5:5-7:19
+MERGED from [com.google.android.gms:play-services-basement:18.4.0] /home/bojan/.gradle/caches/8.9/transforms/e934390019932857707146f7f7a2ba41/transformed/play-services-basement-18.4.0/AndroidManifest.xml:5:5-7:19
+MERGED from [androidx.emoji2:emoji2:1.3.0] /home/bojan/.gradle/caches/8.9/transforms/f84b1b410a7a7eaef9354d750e38092d/transformed/emoji2-1.3.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.3.0] /home/bojan/.gradle/caches/8.9/transforms/f84b1b410a7a7eaef9354d750e38092d/transformed/emoji2-1.3.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/bf2a60cf8dfd68911c99ed8586640170/transformed/lifecycle-process-2.8.4/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/bf2a60cf8dfd68911c99ed8586640170/transformed/lifecycle-process-2.8.4/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/7d8bd4c218d65704400bde8c44668649/transformed/ui-tooling-release/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/7d8bd4c218d65704400bde8c44668649/transformed/ui-tooling-release/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.core:core:1.13.1] /home/bojan/.gradle/caches/8.9/transforms/bfd0a63e70162e088ed79a97474a36e1/transformed/core-1.13.1/AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.13.1] /home/bojan/.gradle/caches/8.9/transforms/bfd0a63e70162e088ed79a97474a36e1/transformed/core-1.13.1/AndroidManifest.xml:28:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/bojan/.gradle/caches/8.9/transforms/c4cda2d5393ce8dad711c5422bef67a2/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/bojan/.gradle/caches/8.9/transforms/c4cda2d5393ce8dad711c5422bef67a2/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /home/bojan/.gradle/caches/8.9/transforms/2e651f932e358610797dc63d95f45172/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:28:5-36:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /home/bojan/.gradle/caches/8.9/transforms/2e651f932e358610797dc63d95f45172/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:28:5-36:19
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] /home/bojan/.gradle/caches/8.9/transforms/5bf8029ca29c7788f5657a9f6b8b128a/transformed/transport-runtime-2.2.6/AndroidManifest.xml:25:5-39:19
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] /home/bojan/.gradle/caches/8.9/transforms/5bf8029ca29c7788f5657a9f6b8b128a/transformed/transport-runtime-2.2.6/AndroidManifest.xml:25:5-39:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/bojan/.gradle/caches/8.9/transforms/4f744d00d25c984d190b0f6fb0bdf4c0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/bojan/.gradle/caches/8.9/transforms/4f744d00d25c984d190b0f6fb0bdf4c0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/bojan/.gradle/caches/8.9/transforms/82e6d981da32b76c15bbf6f1059ad1f6/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/bojan/.gradle/caches/8.9/transforms/82e6d981da32b76c15bbf6f1059ad1f6/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [com.google.android.odml:image:1.0.0-beta1] /home/bojan/.gradle/caches/8.9/transforms/3f9749e191331dbec1f2266d255b01fc/transformed/image-1.0.0-beta1/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.odml:image:1.0.0-beta1] /home/bojan/.gradle/caches/8.9/transforms/3f9749e191331dbec1f2266d255b01fc/transformed/image-1.0.0-beta1/AndroidManifest.xml:7:5-20
+	android:extractNativeLibs
+		INJECTED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.13.1] /home/bojan/.gradle/caches/8.9/transforms/bfd0a63e70162e088ed79a97474a36e1/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
+	android:supportsRtl
+		ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:24:9-35
+	android:label
+		ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:22:9-41
+	android:fullBackupContent
+		ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:20:9-54
+	android:roundIcon
+		ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:23:9-54
+	android:icon
+		ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:21:9-43
+	android:allowBackup
+		ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:18:9-35
+	android:theme
+		ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:25:9-55
+	android:dataExtractionRules
+		ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:19:9-65
+activity#com.example.sensorscamerademo.MainActivity
+ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:27:9-36:20
+	android:label
+		ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:30:13-45
+	android:exported
+		ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:29:13-36
+	android:theme
+		ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:31:13-59
+	android:name
+		ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:28:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:32:13-35:29
+action#android.intent.action.MAIN
+ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:33:17-69
+	android:name
+		ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:33:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:34:17-77
+	android:name
+		ADDED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml:34:27-74
+uses-sdk
+INJECTED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml
+INJECTED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml
+MERGED from [androidx.camera:camera-video:1.3.4] /home/bojan/.gradle/caches/8.9/transforms/1c0a1a30ef9346361d6d0f356344839d/transformed/camera-video-1.3.4/AndroidManifest.xml:5:5-44
+MERGED from [androidx.camera:camera-video:1.3.4] /home/bojan/.gradle/caches/8.9/transforms/1c0a1a30ef9346361d6d0f356344839d/transformed/camera-video-1.3.4/AndroidManifest.xml:5:5-44
+MERGED from [androidx.camera:camera-view:1.3.4] /home/bojan/.gradle/caches/8.9/transforms/6606bac38b719e879a4a4335da281249/transformed/camera-view-1.3.4/AndroidManifest.xml:5:5-44
+MERGED from [androidx.camera:camera-view:1.3.4] /home/bojan/.gradle/caches/8.9/transforms/6606bac38b719e879a4a4335da281249/transformed/camera-view-1.3.4/AndroidManifest.xml:5:5-44
+MERGED from [androidx.camera:camera-lifecycle:1.3.4] /home/bojan/.gradle/caches/8.9/transforms/f2a9b49848017d761a60b5035b63eaf3/transformed/camera-lifecycle-1.3.4/AndroidManifest.xml:5:5-44
+MERGED from [androidx.camera:camera-lifecycle:1.3.4] /home/bojan/.gradle/caches/8.9/transforms/f2a9b49848017d761a60b5035b63eaf3/transformed/camera-lifecycle-1.3.4/AndroidManifest.xml:5:5-44
+MERGED from [androidx.camera:camera-camera2:1.3.4] /home/bojan/.gradle/caches/8.9/transforms/21b8ab6fbc65baa8d892caf48adcdc72/transformed/camera-camera2-1.3.4/AndroidManifest.xml:21:5-44
+MERGED from [androidx.camera:camera-camera2:1.3.4] /home/bojan/.gradle/caches/8.9/transforms/21b8ab6fbc65baa8d892caf48adcdc72/transformed/camera-camera2-1.3.4/AndroidManifest.xml:21:5-44
+MERGED from [androidx.camera:camera-core:1.3.4] /home/bojan/.gradle/caches/8.9/transforms/7e6d513b2e3f802bc49b6ab8e9470151/transformed/camera-core-1.3.4/AndroidManifest.xml:21:5-44
+MERGED from [androidx.camera:camera-core:1.3.4] /home/bojan/.gradle/caches/8.9/transforms/7e6d513b2e3f802bc49b6ab8e9470151/transformed/camera-core-1.3.4/AndroidManifest.xml:21:5-44
+MERGED from [com.google.mlkit:barcode-scanning:17.3.0] /home/bojan/.gradle/caches/8.9/transforms/46928271451fea4970cc2f494b6c2eee/transformed/barcode-scanning-17.3.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.mlkit:barcode-scanning:17.3.0] /home/bojan/.gradle/caches/8.9/transforms/46928271451fea4970cc2f494b6c2eee/transformed/barcode-scanning-17.3.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] /home/bojan/.gradle/caches/8.9/transforms/940c805938920ce646d6a2b81bf7a0f0/transformed/play-services-mlkit-barcode-scanning-18.3.1/AndroidManifest.xml:6:5-44
+MERGED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] /home/bojan/.gradle/caches/8.9/transforms/940c805938920ce646d6a2b81bf7a0f0/transformed/play-services-mlkit-barcode-scanning-18.3.1/AndroidManifest.xml:6:5-44
+MERGED from [com.google.mlkit:barcode-scanning-common:17.0.0] /home/bojan/.gradle/caches/8.9/transforms/5a87cf3ce813476de7ef242230ff7d16/transformed/barcode-scanning-common-17.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.mlkit:barcode-scanning-common:17.0.0] /home/bojan/.gradle/caches/8.9/transforms/5a87cf3ce813476de7ef242230ff7d16/transformed/barcode-scanning-common-17.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.mlkit:vision-common:17.3.0] /home/bojan/.gradle/caches/8.9/transforms/43ac5f659b093b55aeed51109667977d/transformed/vision-common-17.3.0/AndroidManifest.xml:6:5-44
+MERGED from [com.google.mlkit:vision-common:17.3.0] /home/bojan/.gradle/caches/8.9/transforms/43ac5f659b093b55aeed51109667977d/transformed/vision-common-17.3.0/AndroidManifest.xml:6:5-44
+MERGED from [com.google.mlkit:common:18.11.0] /home/bojan/.gradle/caches/8.9/transforms/ffe02f269ac596d52d7e4f4f4bff5e52/transformed/common-18.11.0/AndroidManifest.xml:6:5-44
+MERGED from [com.google.mlkit:common:18.11.0] /home/bojan/.gradle/caches/8.9/transforms/ffe02f269ac596d52d7e4f4f4bff5e52/transformed/common-18.11.0/AndroidManifest.xml:6:5-44
+MERGED from [com.google.android.gms:play-services-base:18.5.0] /home/bojan/.gradle/caches/8.9/transforms/bd87747d8554d749768f273d171e7182/transformed/play-services-base-18.5.0/AndroidManifest.xml:3:5-44
+MERGED from [com.google.android.gms:play-services-base:18.5.0] /home/bojan/.gradle/caches/8.9/transforms/bd87747d8554d749768f273d171e7182/transformed/play-services-base-18.5.0/AndroidManifest.xml:3:5-44
+MERGED from [com.google.mlkit:vision-interfaces:16.3.0] /home/bojan/.gradle/caches/8.9/transforms/25fcda278ebdf91ff684742629a44e77/transformed/vision-interfaces-16.3.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.mlkit:vision-interfaces:16.3.0] /home/bojan/.gradle/caches/8.9/transforms/25fcda278ebdf91ff684742629a44e77/transformed/vision-interfaces-16.3.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] /home/bojan/.gradle/caches/8.9/transforms/631830dbfe7ca5d4c2001a7856551eea/transformed/play-services-tasks-18.2.0/AndroidManifest.xml:3:5-44
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] /home/bojan/.gradle/caches/8.9/transforms/631830dbfe7ca5d4c2001a7856551eea/transformed/play-services-tasks-18.2.0/AndroidManifest.xml:3:5-44
+MERGED from [com.google.android.gms:play-services-basement:18.4.0] /home/bojan/.gradle/caches/8.9/transforms/e934390019932857707146f7f7a2ba41/transformed/play-services-basement-18.4.0/AndroidManifest.xml:3:5-44
+MERGED from [com.google.android.gms:play-services-basement:18.4.0] /home/bojan/.gradle/caches/8.9/transforms/e934390019932857707146f7f7a2ba41/transformed/play-services-basement-18.4.0/AndroidManifest.xml:3:5-44
+MERGED from [androidx.navigation:navigation-common:2.8.0] /home/bojan/.gradle/caches/8.9/transforms/280098f945b3586fd22d1e353bdc5c6e/transformed/navigation-common-2.8.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common:2.8.0] /home/bojan/.gradle/caches/8.9/transforms/280098f945b3586fd22d1e353bdc5c6e/transformed/navigation-common-2.8.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.8.0] /home/bojan/.gradle/caches/8.9/transforms/a76a3a967c0ad4262108d6c44ed3ffd4/transformed/navigation-runtime-2.8.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.8.0] /home/bojan/.gradle/caches/8.9/transforms/a76a3a967c0ad4262108d6c44ed3ffd4/transformed/navigation-runtime-2.8.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.8.0] /home/bojan/.gradle/caches/8.9/transforms/a8c99c0a111ff93412a84733a90de1a1/transformed/navigation-common-ktx-2.8.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.8.0] /home/bojan/.gradle/caches/8.9/transforms/a8c99c0a111ff93412a84733a90de1a1/transformed/navigation-common-ktx-2.8.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.8.0] /home/bojan/.gradle/caches/8.9/transforms/1c4670892006fbc51839ad6800fe2f67/transformed/navigation-runtime-ktx-2.8.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.8.0] /home/bojan/.gradle/caches/8.9/transforms/1c4670892006fbc51839ad6800fe2f67/transformed/navigation-runtime-ktx-2.8.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-compose:2.8.0] /home/bojan/.gradle/caches/8.9/transforms/5d4f1f8c6cd06d6f516e33c0bd36d262/transformed/navigation-compose-2.8.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-compose:2.8.0] /home/bojan/.gradle/caches/8.9/transforms/5d4f1f8c6cd06d6f516e33c0bd36d262/transformed/navigation-compose-2.8.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material3:material3-android:1.3.0] /home/bojan/.gradle/caches/8.9/transforms/6afe95e8eb08c787a207c3bb1798ffcc/transformed/material3-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material3:material3-android:1.3.0] /home/bojan/.gradle/caches/8.9/transforms/6afe95e8eb08c787a207c3bb1798ffcc/transformed/material3-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material:material-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/518fb47e8e9a15fef34d6aa6a9f66efc/transformed/material-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/518fb47e8e9a15fef34d6aa6a9f66efc/transformed/material-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/3aa25495ecbcd0d98c937c438cfe02ca/transformed/animation-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/3aa25495ecbcd0d98c937c438cfe02ca/transformed/animation-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/72aede3458a8bfe7d6fbed107a2212d7/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/72aede3458a8bfe7d6fbed107a2212d7/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/d0b1f194305b1e5e635884dd1fdea9f8/transformed/animation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/d0b1f194305b1e5e635884dd1fdea9f8/transformed/animation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/a39ae953be57b4174a86f48bb2c6af2a/transformed/foundation-layout-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/a39ae953be57b4174a86f48bb2c6af2a/transformed/foundation-layout-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/b07b391597f1afa030ebf4aa350a119d/transformed/foundation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/b07b391597f1afa030ebf4aa350a119d/transformed/foundation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/6f5251000a06d4ef5b97f73424602f9b/transformed/ui-tooling-data-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/6f5251000a06d4ef5b97f73424602f9b/transformed/ui-tooling-data-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/da20858c3eba73c353e72840e27ab527/transformed/ui-unit-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/da20858c3eba73c353e72840e27ab527/transformed/ui-unit-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/7bb2a3abd9c5c24a24144e61ff055e57/transformed/ui-geometry-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/7bb2a3abd9c5c24a24144e61ff055e57/transformed/ui-geometry-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/681825daca6c05d2a96ee0983c3fe090/transformed/ui-util-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/681825daca6c05d2a96ee0983c3fe090/transformed/ui-util-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/b58d7c5a6d22d06ccf1817676db48bcf/transformed/ui-text-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/b58d7c5a6d22d06ccf1817676db48bcf/transformed/ui-text-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/5762de282f0a1d485724c4ad7457c7e8/transformed/ui-tooling-preview-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/5762de282f0a1d485724c4ad7457c7e8/transformed/ui-tooling-preview-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/4a945f6853b19079128d76fdfa3fbf87/transformed/ui-graphics-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/4a945f6853b19079128d76fdfa3fbf87/transformed/ui-graphics-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /home/bojan/.gradle/caches/8.9/transforms/5235dfd1c716f1be9ec699fa2812abf6/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /home/bojan/.gradle/caches/8.9/transforms/5235dfd1c716f1be9ec699fa2812abf6/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.6.1] /home/bojan/.gradle/caches/8.9/transforms/76e9fa9ebed7aece66b959b131f23bfb/transformed/appcompat-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.6.1] /home/bojan/.gradle/caches/8.9/transforms/76e9fa9ebed7aece66b959b131f23bfb/transformed/appcompat-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] /home/bojan/.gradle/caches/8.9/transforms/2457a758fbd01b366cb3670b3b5c51b9/transformed/emoji2-views-helper-1.3.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] /home/bojan/.gradle/caches/8.9/transforms/2457a758fbd01b366cb3670b3b5c51b9/transformed/emoji2-views-helper-1.3.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] /home/bojan/.gradle/caches/8.9/transforms/f84b1b410a7a7eaef9354d750e38092d/transformed/emoji2-1.3.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] /home/bojan/.gradle/caches/8.9/transforms/f84b1b410a7a7eaef9354d750e38092d/transformed/emoji2-1.3.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/bf2a60cf8dfd68911c99ed8586640170/transformed/lifecycle-process-2.8.4/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/bf2a60cf8dfd68911c99ed8586640170/transformed/lifecycle-process-2.8.4/AndroidManifest.xml:21:5-44
+MERGED from [androidx.fragment:fragment:1.3.6] /home/bojan/.gradle/caches/8.9/transforms/7c2a624be7d6af18bebd355712083752/transformed/fragment-1.3.6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.3.6] /home/bojan/.gradle/caches/8.9/transforms/7c2a624be7d6af18bebd355712083752/transformed/fragment-1.3.6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/31efee00f22a18b6c2a0f01ec98819a7/transformed/lifecycle-viewmodel-savedstate-2.8.4/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/31efee00f22a18b6c2a0f01ec98819a7/transformed/lifecycle-viewmodel-savedstate-2.8.4/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /home/bojan/.gradle/caches/8.9/transforms/618e745ce970d797051e9ed72c1adc28/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /home/bojan/.gradle/caches/8.9/transforms/618e745ce970d797051e9ed72c1adc28/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/15231081e6219bb701435ecb19dd9a30/transformed/lifecycle-viewmodel-2.8.4/AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/15231081e6219bb701435ecb19dd9a30/transformed/lifecycle-viewmodel-2.8.4/AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/ea210aaa39b22265b8bc2616a21f7e84/transformed/lifecycle-viewmodel-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/ea210aaa39b22265b8bc2616a21f7e84/transformed/lifecycle-viewmodel-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/7214d780195f48b57921c7ff4d750f56/transformed/lifecycle-livedata-core-ktx-2.8.4/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/7214d780195f48b57921c7ff4d750f56/transformed/lifecycle-livedata-core-ktx-2.8.4/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/736af319f1c4b43eec8c6bce784770d6/transformed/lifecycle-livedata-core-2.8.4/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/736af319f1c4b43eec8c6bce784770d6/transformed/lifecycle-livedata-core-2.8.4/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /home/bojan/.gradle/caches/8.9/transforms/815ab9f9f1dacd949426467f549af0c5/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /home/bojan/.gradle/caches/8.9/transforms/815ab9f9f1dacd949426467f549af0c5/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /home/bojan/.gradle/caches/8.9/transforms/5d5a0441fcd9a846e8f53966cf6294c2/transformed/savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /home/bojan/.gradle/caches/8.9/transforms/5d5a0441fcd9a846e8f53966cf6294c2/transformed/savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/bf12b43e65c88d659d2dc2081da50064/transformed/lifecycle-runtime-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/bf12b43e65c88d659d2dc2081da50064/transformed/lifecycle-runtime-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/3789ec3cd9f68850087555127a391b86/transformed/lifecycle-viewmodel-ktx-2.8.4/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/3789ec3cd9f68850087555127a391b86/transformed/lifecycle-viewmodel-ktx-2.8.4/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/755b6f0d7d1d72fd4abe60b176d0fddf/transformed/lifecycle-livedata-2.8.4/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/755b6f0d7d1d72fd4abe60b176d0fddf/transformed/lifecycle-livedata-2.8.4/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/050e132f3a5619a66c9a05dd9bad26ff/transformed/lifecycle-runtime-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/050e132f3a5619a66c9a05dd9bad26ff/transformed/lifecycle-runtime-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/fe7c5c6621c19bb740159c0266fdd2c8/transformed/lifecycle-runtime-ktx-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/fe7c5c6621c19bb740159c0266fdd2c8/transformed/lifecycle-runtime-ktx-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/9ca82fc838e0f81c727f27905a47fdfe/transformed/lifecycle-viewmodel-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/9ca82fc838e0f81c727f27905a47fdfe/transformed/lifecycle-viewmodel-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-extended-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/5de41db243c24fab103760c7cff402fe/transformed/material-icons-extended-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-extended-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/5de41db243c24fab103760c7cff402fe/transformed/material-icons-extended-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/8c053027e24cd2c0979edd22b26a0ea6/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/8c053027e24cd2c0979edd22b26a0ea6/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/486adb9e394dff7f383b9a39163945d7/transformed/ui-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/486adb9e394dff7f383b9a39163945d7/transformed/ui-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/7d8bd4c218d65704400bde8c44668649/transformed/ui-tooling-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/7d8bd4c218d65704400bde8c44668649/transformed/ui-tooling-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity-compose:1.9.2] /home/bojan/.gradle/caches/8.9/transforms/897c883725e8ce55787d59763093fe77/transformed/activity-compose-1.9.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.9.2] /home/bojan/.gradle/caches/8.9/transforms/897c883725e8ce55787d59763093fe77/transformed/activity-compose-1.9.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.9.2] /home/bojan/.gradle/caches/8.9/transforms/e5b1ba906ca7da8aa93baec28c432096/transformed/activity-ktx-1.9.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.9.2] /home/bojan/.gradle/caches/8.9/transforms/e5b1ba906ca7da8aa93baec28c432096/transformed/activity-ktx-1.9.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity:1.9.2] /home/bojan/.gradle/caches/8.9/transforms/d5c25cafcbd6e8670eff19a828455226/transformed/activity-1.9.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.9.2] /home/bojan/.gradle/caches/8.9/transforms/d5c25cafcbd6e8670eff19a828455226/transformed/activity-1.9.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.autofill:autofill:1.0.0] /home/bojan/.gradle/caches/8.9/transforms/5a09f0ea50b2ce1cbba0fe7fea7b7677/transformed/autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.autofill:autofill:1.0.0] /home/bojan/.gradle/caches/8.9/transforms/5a09f0ea50b2ce1cbba0fe7fea7b7677/transformed/autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.graphics:graphics-path:1.0.1] /home/bojan/.gradle/caches/8.9/transforms/ed23e4e24a23ab695efb46bbefeb9ea3/transformed/graphics-path-1.0.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.graphics:graphics-path:1.0.1] /home/bojan/.gradle/caches/8.9/transforms/ed23e4e24a23ab695efb46bbefeb9ea3/transformed/graphics-path-1.0.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/bojan/.gradle/caches/8.9/transforms/c4ec11cc763ccb25f914ded7d81786ed/transformed/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/bojan/.gradle/caches/8.9/transforms/c4ec11cc763ccb25f914ded7d81786ed/transformed/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/bojan/.gradle/caches/8.9/transforms/a2c823dd80b21a01cef73d88429adbe4/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/bojan/.gradle/caches/8.9/transforms/a2c823dd80b21a01cef73d88429adbe4/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/bojan/.gradle/caches/8.9/transforms/3c20b51a2efd4b751a6e1df7554022d4/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/bojan/.gradle/caches/8.9/transforms/3c20b51a2efd4b751a6e1df7554022d4/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/bojan/.gradle/caches/8.9/transforms/738c16c54b150bb6ba4c7bb14f5ddb17/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/bojan/.gradle/caches/8.9/transforms/738c16c54b150bb6ba4c7bb14f5ddb17/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.0.0] /home/bojan/.gradle/caches/8.9/transforms/9fe0d12ed7520151e67b6995f876340a/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /home/bojan/.gradle/caches/8.9/transforms/9fe0d12ed7520151e67b6995f876340a/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.13.1] /home/bojan/.gradle/caches/8.9/transforms/bfd0a63e70162e088ed79a97474a36e1/transformed/core-1.13.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.13.1] /home/bojan/.gradle/caches/8.9/transforms/bfd0a63e70162e088ed79a97474a36e1/transformed/core-1.13.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /home/bojan/.gradle/caches/8.9/transforms/1f7d716031a9bf5e1df6f5d868a01368/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /home/bojan/.gradle/caches/8.9/transforms/1f7d716031a9bf5e1df6f5d868a01368/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.core:core-ktx:1.13.1] /home/bojan/.gradle/caches/8.9/transforms/85a2242dc5e00ceb6c06dc513d1c9a47/transformed/core-ktx-1.13.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.13.1] /home/bojan/.gradle/caches/8.9/transforms/85a2242dc5e00ceb6c06dc513d1c9a47/transformed/core-ktx-1.13.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/b94efa24fa2d271b00494a243cac0ba3/transformed/runtime-saveable-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/b94efa24fa2d271b00494a243cac0ba3/transformed/runtime-saveable-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/ca333d856a1627b2ca88172b46aaad23/transformed/runtime-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/ca333d856a1627b2ca88172b46aaad23/transformed/runtime-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /home/bojan/.gradle/caches/8.9/transforms/e90a9bbf1cf913aad2beade1919c69cc/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /home/bojan/.gradle/caches/8.9/transforms/e90a9bbf1cf913aad2beade1919c69cc/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/bojan/.gradle/caches/8.9/transforms/c4cda2d5393ce8dad711c5422bef67a2/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/bojan/.gradle/caches/8.9/transforms/c4cda2d5393ce8dad711c5422bef67a2/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.2] /home/bojan/.gradle/caches/8.9/transforms/2e02e4f7acbc77503204224aa6e805c2/transformed/exifinterface-1.3.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.2] /home/bojan/.gradle/caches/8.9/transforms/2e02e4f7acbc77503204224aa6e805c2/transformed/exifinterface-1.3.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/bojan/.gradle/caches/8.9/transforms/4bc7c595cb5c13235b5ba644f5119047/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/bojan/.gradle/caches/8.9/transforms/4bc7c595cb5c13235b5ba644f5119047/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /home/bojan/.gradle/caches/8.9/transforms/2e651f932e358610797dc63d95f45172/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /home/bojan/.gradle/caches/8.9/transforms/2e651f932e358610797dc63d95f45172/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] /home/bojan/.gradle/caches/8.9/transforms/5bf8029ca29c7788f5657a9f6b8b128a/transformed/transport-runtime-2.2.6/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] /home/bojan/.gradle/caches/8.9/transforms/5bf8029ca29c7788f5657a9f6b8b128a/transformed/transport-runtime-2.2.6/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-api:2.2.1] /home/bojan/.gradle/caches/8.9/transforms/274635680e9fc8f97e41e214de8556c1/transformed/transport-api-2.2.1/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-api:2.2.1] /home/bojan/.gradle/caches/8.9/transforms/274635680e9fc8f97e41e214de8556c1/transformed/transport-api-2.2.1/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.firebase:firebase-components:16.1.0] /home/bojan/.gradle/caches/8.9/transforms/fc3148df01d6146388de1258be6182f1/transformed/firebase-components-16.1.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-components:16.1.0] /home/bojan/.gradle/caches/8.9/transforms/fc3148df01d6146388de1258be6182f1/transformed/firebase-components-16.1.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-encoders-json:17.1.0] /home/bojan/.gradle/caches/8.9/transforms/8640cccf0837adf8c9496499421abe80/transformed/firebase-encoders-json-17.1.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-encoders-json:17.1.0] /home/bojan/.gradle/caches/8.9/transforms/8640cccf0837adf8c9496499421abe80/transformed/firebase-encoders-json-17.1.0/AndroidManifest.xml:19:5-21:41
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /home/bojan/.gradle/caches/8.9/transforms/b576cf6e7e9771293825ee8ffb80e2c0/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /home/bojan/.gradle/caches/8.9/transforms/b576cf6e7e9771293825ee8ffb80e2c0/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/bojan/.gradle/caches/8.9/transforms/4f744d00d25c984d190b0f6fb0bdf4c0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/bojan/.gradle/caches/8.9/transforms/4f744d00d25c984d190b0f6fb0bdf4c0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/bojan/.gradle/caches/8.9/transforms/82e6d981da32b76c15bbf6f1059ad1f6/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/bojan/.gradle/caches/8.9/transforms/82e6d981da32b76c15bbf6f1059ad1f6/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.0.0] /home/bojan/.gradle/caches/8.9/transforms/d0fcfd992d27c14864f8dfa5de634add/transformed/tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] /home/bojan/.gradle/caches/8.9/transforms/d0fcfd992d27c14864f8dfa5de634add/transformed/tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/bojan/.gradle/caches/8.9/transforms/850194febd27f54a0641b789645ba221/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/bojan/.gradle/caches/8.9/transforms/850194febd27f54a0641b789645ba221/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.odml:image:1.0.0-beta1] /home/bojan/.gradle/caches/8.9/transforms/3f9749e191331dbec1f2266d255b01fc/transformed/image-1.0.0-beta1/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.odml:image:1.0.0-beta1] /home/bojan/.gradle/caches/8.9/transforms/3f9749e191331dbec1f2266d255b01fc/transformed/image-1.0.0-beta1/AndroidManifest.xml:5:5-44
+	android:targetSdkVersion
+		INJECTED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/bojan/Documents/RMA_demo/app/src/main/AndroidManifest.xml
+service#androidx.camera.core.impl.MetadataHolderService
+ADDED from [androidx.camera:camera-camera2:1.3.4] /home/bojan/.gradle/caches/8.9/transforms/21b8ab6fbc65baa8d892caf48adcdc72/transformed/camera-camera2-1.3.4/AndroidManifest.xml:24:9-33:19
+MERGED from [androidx.camera:camera-core:1.3.4] /home/bojan/.gradle/caches/8.9/transforms/7e6d513b2e3f802bc49b6ab8e9470151/transformed/camera-core-1.3.4/AndroidManifest.xml:29:9-33:78
+MERGED from [androidx.camera:camera-core:1.3.4] /home/bojan/.gradle/caches/8.9/transforms/7e6d513b2e3f802bc49b6ab8e9470151/transformed/camera-core-1.3.4/AndroidManifest.xml:29:9-33:78
+	tools:node
+		ADDED from [androidx.camera:camera-camera2:1.3.4] /home/bojan/.gradle/caches/8.9/transforms/21b8ab6fbc65baa8d892caf48adcdc72/transformed/camera-camera2-1.3.4/AndroidManifest.xml:29:13-31
+	android:enabled
+		ADDED from [androidx.camera:camera-camera2:1.3.4] /home/bojan/.gradle/caches/8.9/transforms/21b8ab6fbc65baa8d892caf48adcdc72/transformed/camera-camera2-1.3.4/AndroidManifest.xml:26:13-36
+	android:exported
+		ADDED from [androidx.camera:camera-camera2:1.3.4] /home/bojan/.gradle/caches/8.9/transforms/21b8ab6fbc65baa8d892caf48adcdc72/transformed/camera-camera2-1.3.4/AndroidManifest.xml:27:13-37
+	tools:ignore
+		ADDED from [androidx.camera:camera-camera2:1.3.4] /home/bojan/.gradle/caches/8.9/transforms/21b8ab6fbc65baa8d892caf48adcdc72/transformed/camera-camera2-1.3.4/AndroidManifest.xml:28:13-75
+	android:name
+		ADDED from [androidx.camera:camera-camera2:1.3.4] /home/bojan/.gradle/caches/8.9/transforms/21b8ab6fbc65baa8d892caf48adcdc72/transformed/camera-camera2-1.3.4/AndroidManifest.xml:25:13-75
+meta-data#androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER
+ADDED from [androidx.camera:camera-camera2:1.3.4] /home/bojan/.gradle/caches/8.9/transforms/21b8ab6fbc65baa8d892caf48adcdc72/transformed/camera-camera2-1.3.4/AndroidManifest.xml:30:13-32:89
+	android:value
+		ADDED from [androidx.camera:camera-camera2:1.3.4] /home/bojan/.gradle/caches/8.9/transforms/21b8ab6fbc65baa8d892caf48adcdc72/transformed/camera-camera2-1.3.4/AndroidManifest.xml:32:17-86
+	android:name
+		ADDED from [androidx.camera:camera-camera2:1.3.4] /home/bojan/.gradle/caches/8.9/transforms/21b8ab6fbc65baa8d892caf48adcdc72/transformed/camera-camera2-1.3.4/AndroidManifest.xml:31:17-103
+service#com.google.mlkit.common.internal.MlKitComponentDiscoveryService
+ADDED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] /home/bojan/.gradle/caches/8.9/transforms/940c805938920ce646d6a2b81bf7a0f0/transformed/play-services-mlkit-barcode-scanning-18.3.1/AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.mlkit:vision-common:17.3.0] /home/bojan/.gradle/caches/8.9/transforms/43ac5f659b093b55aeed51109667977d/transformed/vision-common-17.3.0/AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.mlkit:vision-common:17.3.0] /home/bojan/.gradle/caches/8.9/transforms/43ac5f659b093b55aeed51109667977d/transformed/vision-common-17.3.0/AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.mlkit:common:18.11.0] /home/bojan/.gradle/caches/8.9/transforms/ffe02f269ac596d52d7e4f4f4bff5e52/transformed/common-18.11.0/AndroidManifest.xml:15:9-23:19
+MERGED from [com.google.mlkit:common:18.11.0] /home/bojan/.gradle/caches/8.9/transforms/ffe02f269ac596d52d7e4f4f4bff5e52/transformed/common-18.11.0/AndroidManifest.xml:15:9-23:19
+	android:exported
+		ADDED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] /home/bojan/.gradle/caches/8.9/transforms/940c805938920ce646d6a2b81bf7a0f0/transformed/play-services-mlkit-barcode-scanning-18.3.1/AndroidManifest.xml:11:13-37
+	tools:targetApi
+		ADDED from [com.google.mlkit:common:18.11.0] /home/bojan/.gradle/caches/8.9/transforms/ffe02f269ac596d52d7e4f4f4bff5e52/transformed/common-18.11.0/AndroidManifest.xml:19:13-32
+	android:directBootAware
+		ADDED from [com.google.mlkit:common:18.11.0] /home/bojan/.gradle/caches/8.9/transforms/ffe02f269ac596d52d7e4f4f4bff5e52/transformed/common-18.11.0/AndroidManifest.xml:17:13-43
+	android:name
+		ADDED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] /home/bojan/.gradle/caches/8.9/transforms/940c805938920ce646d6a2b81bf7a0f0/transformed/play-services-mlkit-barcode-scanning-18.3.1/AndroidManifest.xml:10:13-91
+meta-data#com.google.firebase.components:com.google.mlkit.vision.barcode.internal.BarcodeRegistrar
+ADDED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] /home/bojan/.gradle/caches/8.9/transforms/940c805938920ce646d6a2b81bf7a0f0/transformed/play-services-mlkit-barcode-scanning-18.3.1/AndroidManifest.xml:12:13-14:85
+	android:value
+		ADDED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] /home/bojan/.gradle/caches/8.9/transforms/940c805938920ce646d6a2b81bf7a0f0/transformed/play-services-mlkit-barcode-scanning-18.3.1/AndroidManifest.xml:14:17-82
+	android:name
+		ADDED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] /home/bojan/.gradle/caches/8.9/transforms/940c805938920ce646d6a2b81bf7a0f0/transformed/play-services-mlkit-barcode-scanning-18.3.1/AndroidManifest.xml:13:17-120
+meta-data#com.google.firebase.components:com.google.mlkit.vision.common.internal.VisionCommonRegistrar
+ADDED from [com.google.mlkit:vision-common:17.3.0] /home/bojan/.gradle/caches/8.9/transforms/43ac5f659b093b55aeed51109667977d/transformed/vision-common-17.3.0/AndroidManifest.xml:12:13-14:85
+	android:value
+		ADDED from [com.google.mlkit:vision-common:17.3.0] /home/bojan/.gradle/caches/8.9/transforms/43ac5f659b093b55aeed51109667977d/transformed/vision-common-17.3.0/AndroidManifest.xml:14:17-82
+	android:name
+		ADDED from [com.google.mlkit:vision-common:17.3.0] /home/bojan/.gradle/caches/8.9/transforms/43ac5f659b093b55aeed51109667977d/transformed/vision-common-17.3.0/AndroidManifest.xml:13:17-124
+provider#com.google.mlkit.common.internal.MlKitInitProvider
+ADDED from [com.google.mlkit:common:18.11.0] /home/bojan/.gradle/caches/8.9/transforms/ffe02f269ac596d52d7e4f4f4bff5e52/transformed/common-18.11.0/AndroidManifest.xml:9:9-13:38
+	android:authorities
+		ADDED from [com.google.mlkit:common:18.11.0] /home/bojan/.gradle/caches/8.9/transforms/ffe02f269ac596d52d7e4f4f4bff5e52/transformed/common-18.11.0/AndroidManifest.xml:11:13-69
+	android:exported
+		ADDED from [com.google.mlkit:common:18.11.0] /home/bojan/.gradle/caches/8.9/transforms/ffe02f269ac596d52d7e4f4f4bff5e52/transformed/common-18.11.0/AndroidManifest.xml:12:13-37
+	android:initOrder
+		ADDED from [com.google.mlkit:common:18.11.0] /home/bojan/.gradle/caches/8.9/transforms/ffe02f269ac596d52d7e4f4f4bff5e52/transformed/common-18.11.0/AndroidManifest.xml:13:13-35
+	android:name
+		ADDED from [com.google.mlkit:common:18.11.0] /home/bojan/.gradle/caches/8.9/transforms/ffe02f269ac596d52d7e4f4f4bff5e52/transformed/common-18.11.0/AndroidManifest.xml:10:13-78
+meta-data#com.google.firebase.components:com.google.mlkit.common.internal.CommonComponentRegistrar
+ADDED from [com.google.mlkit:common:18.11.0] /home/bojan/.gradle/caches/8.9/transforms/ffe02f269ac596d52d7e4f4f4bff5e52/transformed/common-18.11.0/AndroidManifest.xml:20:13-22:85
+	android:value
+		ADDED from [com.google.mlkit:common:18.11.0] /home/bojan/.gradle/caches/8.9/transforms/ffe02f269ac596d52d7e4f4f4bff5e52/transformed/common-18.11.0/AndroidManifest.xml:22:17-82
+	android:name
+		ADDED from [com.google.mlkit:common:18.11.0] /home/bojan/.gradle/caches/8.9/transforms/ffe02f269ac596d52d7e4f4f4bff5e52/transformed/common-18.11.0/AndroidManifest.xml:21:17-120
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:18.5.0] /home/bojan/.gradle/caches/8.9/transforms/bd87747d8554d749768f273d171e7182/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:9-173
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:18.5.0] /home/bojan/.gradle/caches/8.9/transforms/bd87747d8554d749768f273d171e7182/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:146-170
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:18.5.0] /home/bojan/.gradle/caches/8.9/transforms/bd87747d8554d749768f273d171e7182/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:86-145
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:18.5.0] /home/bojan/.gradle/caches/8.9/transforms/bd87747d8554d749768f273d171e7182/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:19-85
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:18.4.0] /home/bojan/.gradle/caches/8.9/transforms/e934390019932857707146f7f7a2ba41/transformed/play-services-basement-18.4.0/AndroidManifest.xml:6:9-122
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:18.4.0] /home/bojan/.gradle/caches/8.9/transforms/e934390019932857707146f7f7a2ba41/transformed/play-services-basement-18.4.0/AndroidManifest.xml:6:66-119
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:18.4.0] /home/bojan/.gradle/caches/8.9/transforms/e934390019932857707146f7f7a2ba41/transformed/play-services-basement-18.4.0/AndroidManifest.xml:6:20-65
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.3.0] /home/bojan/.gradle/caches/8.9/transforms/f84b1b410a7a7eaef9354d750e38092d/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/bf2a60cf8dfd68911c99ed8586640170/transformed/lifecycle-process-2.8.4/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/bf2a60cf8dfd68911c99ed8586640170/transformed/lifecycle-process-2.8.4/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/bojan/.gradle/caches/8.9/transforms/4f744d00d25c984d190b0f6fb0bdf4c0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/bojan/.gradle/caches/8.9/transforms/4f744d00d25c984d190b0f6fb0bdf4c0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/bojan/.gradle/caches/8.9/transforms/82e6d981da32b76c15bbf6f1059ad1f6/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/bojan/.gradle/caches/8.9/transforms/82e6d981da32b76c15bbf6f1059ad1f6/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /home/bojan/.gradle/caches/8.9/transforms/f84b1b410a7a7eaef9354d750e38092d/transformed/emoji2-1.3.0/AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /home/bojan/.gradle/caches/8.9/transforms/f84b1b410a7a7eaef9354d750e38092d/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /home/bojan/.gradle/caches/8.9/transforms/f84b1b410a7a7eaef9354d750e38092d/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /home/bojan/.gradle/caches/8.9/transforms/f84b1b410a7a7eaef9354d750e38092d/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.3.0] /home/bojan/.gradle/caches/8.9/transforms/f84b1b410a7a7eaef9354d750e38092d/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /home/bojan/.gradle/caches/8.9/transforms/f84b1b410a7a7eaef9354d750e38092d/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /home/bojan/.gradle/caches/8.9/transforms/f84b1b410a7a7eaef9354d750e38092d/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/bf2a60cf8dfd68911c99ed8586640170/transformed/lifecycle-process-2.8.4/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/bf2a60cf8dfd68911c99ed8586640170/transformed/lifecycle-process-2.8.4/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.8.4] /home/bojan/.gradle/caches/8.9/transforms/bf2a60cf8dfd68911c99ed8586640170/transformed/lifecycle-process-2.8.4/AndroidManifest.xml:30:17-78
+activity#androidx.compose.ui.tooling.PreviewActivity
+ADDED from [androidx.compose.ui:ui-tooling-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/7d8bd4c218d65704400bde8c44668649/transformed/ui-tooling-release/AndroidManifest.xml:23:9-25:39
+	android:exported
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/7d8bd4c218d65704400bde8c44668649/transformed/ui-tooling-release/AndroidManifest.xml:25:13-36
+	android:name
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.7.2] /home/bojan/.gradle/caches/8.9/transforms/7d8bd4c218d65704400bde8c44668649/transformed/ui-tooling-release/AndroidManifest.xml:24:13-71
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /home/bojan/.gradle/caches/8.9/transforms/bfd0a63e70162e088ed79a97474a36e1/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.13.1] /home/bojan/.gradle/caches/8.9/transforms/bfd0a63e70162e088ed79a97474a36e1/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /home/bojan/.gradle/caches/8.9/transforms/bfd0a63e70162e088ed79a97474a36e1/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+permission#com.example.sensorscamerademo.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /home/bojan/.gradle/caches/8.9/transforms/bfd0a63e70162e088ed79a97474a36e1/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.13.1] /home/bojan/.gradle/caches/8.9/transforms/bfd0a63e70162e088ed79a97474a36e1/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /home/bojan/.gradle/caches/8.9/transforms/bfd0a63e70162e088ed79a97474a36e1/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /home/bojan/.gradle/caches/8.9/transforms/bfd0a63e70162e088ed79a97474a36e1/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /home/bojan/.gradle/caches/8.9/transforms/bfd0a63e70162e088ed79a97474a36e1/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+uses-permission#com.example.sensorscamerademo.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /home/bojan/.gradle/caches/8.9/transforms/bfd0a63e70162e088ed79a97474a36e1/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /home/bojan/.gradle/caches/8.9/transforms/bfd0a63e70162e088ed79a97474a36e1/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /home/bojan/.gradle/caches/8.9/transforms/2e651f932e358610797dc63d95f45172/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:25:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] /home/bojan/.gradle/caches/8.9/transforms/5bf8029ca29c7788f5657a9f6b8b128a/transformed/transport-runtime-2.2.6/AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] /home/bojan/.gradle/caches/8.9/transforms/5bf8029ca29c7788f5657a9f6b8b128a/transformed/transport-runtime-2.2.6/AndroidManifest.xml:22:5-79
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /home/bojan/.gradle/caches/8.9/transforms/2e651f932e358610797dc63d95f45172/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:25:22-76
+uses-permission#android.permission.INTERNET
+ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /home/bojan/.gradle/caches/8.9/transforms/2e651f932e358610797dc63d95f45172/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:26:5-67
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /home/bojan/.gradle/caches/8.9/transforms/2e651f932e358610797dc63d95f45172/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:26:22-64
+service#com.google.android.datatransport.runtime.backends.TransportBackendDiscovery
+ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /home/bojan/.gradle/caches/8.9/transforms/2e651f932e358610797dc63d95f45172/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:29:9-35:19
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] /home/bojan/.gradle/caches/8.9/transforms/5bf8029ca29c7788f5657a9f6b8b128a/transformed/transport-runtime-2.2.6/AndroidManifest.xml:36:9-38:40
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] /home/bojan/.gradle/caches/8.9/transforms/5bf8029ca29c7788f5657a9f6b8b128a/transformed/transport-runtime-2.2.6/AndroidManifest.xml:36:9-38:40
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /home/bojan/.gradle/caches/8.9/transforms/2e651f932e358610797dc63d95f45172/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:31:13-37
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /home/bojan/.gradle/caches/8.9/transforms/2e651f932e358610797dc63d95f45172/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:30:13-103
+meta-data#backend:com.google.android.datatransport.cct.CctBackendFactory
+ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /home/bojan/.gradle/caches/8.9/transforms/2e651f932e358610797dc63d95f45172/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:32:13-34:39
+	android:value
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /home/bojan/.gradle/caches/8.9/transforms/2e651f932e358610797dc63d95f45172/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:34:17-36
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /home/bojan/.gradle/caches/8.9/transforms/2e651f932e358610797dc63d95f45172/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:33:17-94
+service#com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService
+ADDED from [com.google.android.datatransport:transport-runtime:2.2.6] /home/bojan/.gradle/caches/8.9/transforms/5bf8029ca29c7788f5657a9f6b8b128a/transformed/transport-runtime-2.2.6/AndroidManifest.xml:26:9-30:19
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.6] /home/bojan/.gradle/caches/8.9/transforms/5bf8029ca29c7788f5657a9f6b8b128a/transformed/transport-runtime-2.2.6/AndroidManifest.xml:28:13-37
+	android:permission
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.6] /home/bojan/.gradle/caches/8.9/transforms/5bf8029ca29c7788f5657a9f6b8b128a/transformed/transport-runtime-2.2.6/AndroidManifest.xml:29:13-69
+	android:name
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.6] /home/bojan/.gradle/caches/8.9/transforms/5bf8029ca29c7788f5657a9f6b8b128a/transformed/transport-runtime-2.2.6/AndroidManifest.xml:27:13-117
+receiver#com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver
+ADDED from [com.google.android.datatransport:transport-runtime:2.2.6] /home/bojan/.gradle/caches/8.9/transforms/5bf8029ca29c7788f5657a9f6b8b128a/transformed/transport-runtime-2.2.6/AndroidManifest.xml:32:9-34:40
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.6] /home/bojan/.gradle/caches/8.9/transforms/5bf8029ca29c7788f5657a9f6b8b128a/transformed/transport-runtime-2.2.6/AndroidManifest.xml:34:13-37
+	android:name
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.6] /home/bojan/.gradle/caches/8.9/transforms/5bf8029ca29c7788f5657a9f6b8b128a/transformed/transport-runtime-2.2.6/AndroidManifest.xml:33:13-132
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/bojan/.gradle/caches/8.9/transforms/4f744d00d25c984d190b0f6fb0bdf4c0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/bojan/.gradle/caches/8.9/transforms/4f744d00d25c984d190b0f6fb0bdf4c0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/bojan/.gradle/caches/8.9/transforms/4f744d00d25c984d190b0f6fb0bdf4c0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/bojan/.gradle/caches/8.9/transforms/4f744d00d25c984d190b0f6fb0bdf4c0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/bojan/.gradle/caches/8.9/transforms/4f744d00d25c984d190b0f6fb0bdf4c0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/bojan/.gradle/caches/8.9/transforms/4f744d00d25c984d190b0f6fb0bdf4c0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/bojan/.gradle/caches/8.9/transforms/4f744d00d25c984d190b0f6fb0bdf4c0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/bojan/.gradle/caches/8.9/transforms/4f744d00d25c984d190b0f6fb0bdf4c0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/bojan/.gradle/caches/8.9/transforms/4f744d00d25c984d190b0f6fb0bdf4c0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/bojan/.gradle/caches/8.9/transforms/4f744d00d25c984d190b0f6fb0bdf4c0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/bojan/.gradle/caches/8.9/transforms/4f744d00d25c984d190b0f6fb0bdf4c0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/bojan/.gradle/caches/8.9/transforms/4f744d00d25c984d190b0f6fb0bdf4c0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/bojan/.gradle/caches/8.9/transforms/4f744d00d25c984d190b0f6fb0bdf4c0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/bojan/.gradle/caches/8.9/transforms/4f744d00d25c984d190b0f6fb0bdf4c0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/bojan/.gradle/caches/8.9/transforms/4f744d00d25c984d190b0f6fb0bdf4c0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/bojan/.gradle/caches/8.9/transforms/4f744d00d25c984d190b0f6fb0bdf4c0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/bojan/.gradle/caches/8.9/transforms/4f744d00d25c984d190b0f6fb0bdf4c0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/bojan/.gradle/caches/8.9/transforms/4f744d00d25c984d190b0f6fb0bdf4c0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/bojan/.gradle/caches/8.9/transforms/4f744d00d25c984d190b0f6fb0bdf4c0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/bojan/.gradle/caches/8.9/transforms/4f744d00d25c984d190b0f6fb0bdf4c0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/bojan/.gradle/caches/8.9/transforms/4f744d00d25c984d190b0f6fb0bdf4c0/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
