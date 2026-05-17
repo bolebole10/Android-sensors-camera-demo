@@ -24,21 +24,12 @@ import com.example.sensorscamerademo.ui.DemoScaffold
 import com.example.sensorscamerademo.ui.ExplanationCard
 import kotlin.math.abs
 
-/**
- * Bubble level demo. Uses the gravity sensor — it reports the direction
- * of gravity in the device's coordinate system, so when the phone is
- * flat on a table the X and Y components are near zero. Falling back to
- * the raw accelerometer would also work (gravity is just a low-pass
- * filtered accelerometer), but the gravity sensor handles that filter
- * for us.
- */
+
 @Composable
 fun BubbleLevelScreen(onBack: () -> Unit) {
     DemoScaffold(title = "Bubble Level", onBack = onBack) { modifier ->
+        // Fallback: ako uređaj nema gravity senzor, koristimo akcelerometar
         val hasGravity = hasSensor(Sensor.TYPE_GRAVITY)
-        // Fall back to the accelerometer on devices without a synthetic
-        // gravity sensor. The maths is the same; the accelerometer values
-        // are just noisier and include user motion as well as gravity.
         val sensorType = if (hasGravity) Sensor.TYPE_GRAVITY else Sensor.TYPE_ACCELEROMETER
         val values by rememberSensorValues(sensorType)
 
@@ -47,10 +38,12 @@ fun BubbleLevelScreen(onBack: () -> Unit) {
             return@DemoScaffold
         }
 
+        // values[0]=X, values[1]=Y, values[2]=Z — gravitacija po osima uređaja
         val x = values?.getOrNull(0) ?: 0f
         val y = values?.getOrNull(1) ?: 0f
         val z = values?.getOrNull(2) ?: 0f
 
+        // Kad je uređaj ravan: X≈0, Y≈0 → zeleno; inače crveno
         val isLevel = abs(x) < 0.3f && abs(y) < 0.3f
         val bubbleColor by animateColorAsState(
             targetValue = if (isLevel) Color(0xFF2E7D32) else Color(0xFFC62828),
@@ -79,12 +72,6 @@ fun BubbleLevelScreen(onBack: () -> Unit) {
                 text = "X: %.2f   Y: %.2f   Z: %.2f".format(x, y, z),
                 style = MaterialTheme.typography.titleMedium
             )
-
-            ExplanationCard(
-                text = "The gravity sensor reports the direction of gravity in the device's " +
-                    "coordinate system. When flat on a table, X and Y are near zero and Z is " +
-                    "near 9.81. We map the X/Y components to a bubble position on screen."
-            )
         }
     }
 }
@@ -101,7 +88,6 @@ private fun BubbleLevelCanvas(
         val centre = Offset(size.width / 2f, size.height / 2f)
         val radius = size.minDimension / 2f - 8.dp.toPx()
 
-        // Outer circle and crosshairs.
         drawCircle(
             color = outlineColor.copy(alpha = 0.4f),
             radius = radius,
@@ -127,16 +113,11 @@ private fun BubbleLevelCanvas(
             strokeWidth = 1.5f
         )
 
-        // Normalize gravity into a -1..1 range. Earth gravity is ~9.81 m/s²
-        // along whichever axis is "down" — when the phone is tilted on its
-        // side, the X or Y reading approaches that magnitude, which we
-        // treat as the edge of the dial.
+        // Normaliziramo X/Y u raspon -1..1 dijeljenjem s gravitacijom (9.81)
         val nx = (gravityX / 9.81f).coerceIn(-1f, 1f)
         val ny = (gravityY / 9.81f).coerceIn(-1f, 1f)
 
-        // Compose's Y axis points down, but the gravity sensor's Y axis
-        // points "up" out of the bottom of the phone. We flip the sign of
-        // X so tilting the right side down moves the bubble right.
+        // Mapiramo normalizirane vrijednosti na poziciju kružića unutar canvasa
         val bubble = Offset(
             x = centre.x - nx * radius * 0.7f,
             y = centre.y + ny * radius * 0.7f
