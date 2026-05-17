@@ -23,16 +23,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 
-/**
- * Wraps a composable so it only runs once all the listed permissions are
- * granted. If they're not, the user sees a "Grant Permission" button and
- * a short explanation — tapping it triggers the runtime permission
- * request. As soon as they're granted, [content] is composed.
- *
- * We do this with Compose's [rememberLauncherForActivityResult] rather
- * than pulling in `accompanist-permissions`, so there's one fewer
- * dependency to explain in the presentation.
- */
+// Prikazuje content tek kad su sve permissije odobrene, inače traži korisnika
 @Composable
 fun PermissionGate(
     permissions: List<String>,
@@ -54,8 +45,6 @@ fun PermissionGate(
         granted = result.values.all { it } && allGranted()
     }
 
-    // Re-check on first composition so permissions granted in the system
-    // settings while the app was backgrounded are picked up immediately.
     LaunchedEffect(Unit) { granted = allGranted() }
 
     if (granted) {

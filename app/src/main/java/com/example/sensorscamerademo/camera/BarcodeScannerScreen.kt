@@ -45,23 +45,6 @@ import com.google.mlkit.vision.barcode.common.Barcode
 import com.google.mlkit.vision.common.InputImage
 import java.util.concurrent.Executors
 
-/**
- * Barcode / QR scanner using CameraX's ImageAnalysis use case + ML Kit's
- * on-device barcode detector. The interesting parts:
- *
- *  - ImageAnalysis delivers each preview frame to our code as an
- *    ImageProxy. We have to close() it when we're done, or the camera
- *    pipeline stalls.
- *
- *  - STRATEGY_KEEP_ONLY_LATEST drops queued frames if our analyzer is
- *    slower than the camera. That keeps results fresh and avoids unbounded
- *    latency, at the cost of skipping some frames. The alternative
- *    (STRATEGY_BLOCK_PRODUCER) would force the camera to wait for us.
- *
- *  - ML Kit detection is async (returns a Task). We wire its
- *    addOnCompleteListener to close the ImageProxy — this is the canonical
- *    pattern from the ML Kit + CameraX samples.
- */
 @Composable
 fun BarcodeScannerScreen(onBack: () -> Unit) {
     DemoScaffold(title = "Barcode Scanner", onBack = onBack) { modifier ->
@@ -81,11 +64,8 @@ private fun BarcodeContent(modifier: Modifier) {
     val context = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
 
-    // The most recent barcode and the bounding box where it was found.
-    // Bounding box is null when we don't have a detection.
     var detection by remember { mutableStateOf<BarcodeResult?>(null) }
-    // The size of the analyzed image, in image-coordinate space. We need
-    // it to scale the bounding box into screen coordinates.
+    // Veličina slike — trebamo za skaliranje boundingBoxa u screen koordinate
     var imageSize by remember { mutableStateOf<Pair<Int, Int>?>(null) }
 
     val previewView = remember {
@@ -94,9 +74,7 @@ private fun BarcodeContent(modifier: Modifier) {
         }
     }
 
-    // ML Kit scanner. The default options scan every supported format,
-    // which is what we want for a demo. A real app would limit to e.g.
-    // FORMAT_QR_CODE for performance.
+    // ML Kit skener — radi potpuno on-device, ne treba internet
     val scanner = remember { BarcodeScanning.getClient() }
     val analyzerExecutor = remember { Executors.newSingleThreadExecutor() }
 
@@ -106,9 +84,11 @@ private fun BarcodeContent(modifier: Modifier) {
             it.setSurfaceProvider(previewView.surfaceProvider)
         }
         val analysis = ImageAnalysis.Builder()
+            // Preskačemo stare frameove ako je analiza spora
             .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
             .build()
 
+        // Analyzer prima svaki frame kao ImageProxy
         analysis.setAnalyzer(analyzerExecutor) { imageProxy: ImageProxy ->
             val mediaImage = imageProxy.image
             if (mediaImage == null) {
@@ -130,6 +110,7 @@ private fun BarcodeContent(modifier: Modifier) {
                         )
                     }
                 }
+                // OBAVEZNO zatvoriti imageProxy — inače se camera pipeline blokira!
                 .addOnCompleteListener { imageProxy.close() }
         }
 
@@ -217,9 +198,6 @@ private fun BoxOverlay(
 ) {
     if (box == null || imageSize == null) return
     val (rawW, rawH) = imageSize
-    // When the image is rotated 90/270°, the width/height we should map
-    // against are swapped — the camera sensor is sideways relative to the
-    // portrait preview.
     val (imgW, imgH) = if (rotation == 90 || rotation == 270) rawH to rawW else rawW to rawH
 
     Canvas(modifier = modifier) {
@@ -232,8 +210,6 @@ private fun BoxOverlay(
         val offsetX = (size.width - drawW) / 2f
         val offsetY = (size.height - drawH) / 2f
 
-        // Rotate the box's image-space coords into the previewed coord
-        // system before scaling. We treat rawW/rawH as the sensor frame.
         val rotated = rotateRect(box, rawW, rawH, rotation)
 
         val left = offsetX + rotated.left * scale

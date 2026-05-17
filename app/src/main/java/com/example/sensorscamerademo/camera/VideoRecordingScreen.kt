@@ -1,72 +1,3 @@
-/*
- * ============================================================================
- * VideoRecordingScreen — CameraX video capture demo
- * ============================================================================
- *
- *  ---  What a basic CameraX *photo* app would look like  --------------------
- *
- *  Although this screen records video, the simplest CameraX use case is
- *  taking a still photo. Conceptually it is almost identical to what you see
- *  below; the only differences are:
- *
- *   1.  Swap the `VideoCapture<Recorder>` use case for an `ImageCapture`.
- *
- *          val imageCapture = ImageCapture.Builder()
- *              .setCaptureMode(ImageCapture.CAPTURE_MODE_MAXIMIZE_QUALITY)
- *              .build()
- *
- *   2.  Bind `Preview` + `ImageCapture` to the lifecycle (instead of
- *       Preview + VideoCapture):
- *
- *          cameraProvider.bindToLifecycle(
- *              lifecycleOwner, cameraSelector, preview, imageCapture
- *          )
- *
- *   3.  On the shutter-button tap, call `takePicture(...)` and write the
- *       resulting bytes to MediaStore (Pictures/SensorsCameraDemo/).
- *       There is no Recording object to manage and no audio permission.
- *
- *  Everything else — the `PreviewView`, the lifecycle-aware binding, the
- *  `MediaStore` output, the permission request — is the same. That's the
- *  point of CameraX: switching from photo to video is a matter of changing
- *  one use case, not rewriting the camera pipeline.
- *
- *  This corresponds to "Camera demo #1" from the original presentation
- *  outline, which we cover verbally rather than as a separate screen.
- *
- *  ---  How CameraX is structured  ------------------------------------------
- *
- *  ProcessCameraProvider is a singleton that owns the camera device.
- *  bindToLifecycle() ties the camera to a LifecycleOwner (the Activity in
- *  our case) — when that owner is RESUMED the camera opens; when it stops
- *  the camera is released automatically. We do not call open()/close()
- *  ourselves, which is the single biggest ergonomic win over Camera2.
- *
- *  Use cases CameraX exposes:
- *     - Preview        — feeds frames into a Surface (PreviewView)
- *     - ImageCapture   — high-quality still photos
- *     - VideoCapture   — encoded video (used here, with a Recorder)
- *     - ImageAnalysis  — gives each frame to your code (see BarcodeScanner)
- *
- *  A camera can usually bind 2 of these at once; the documented "guaranteed"
- *  combinations are listed in the CameraX docs. We bind Preview + VideoCapture.
- *
- *  ---  Where the file ends up  ---------------------------------------------
- *
- *  Before Android 10 you needed WRITE_EXTERNAL_STORAGE plus a hard path on
- *  the SD card. Since Android 10, MediaStore handles that for us under the
- *  Scoped Storage model — we hand MediaStore a relative path
- *  ("Movies/SensorsCameraDemo/") and it puts the file in the right place,
- *  visible to the gallery, without any storage permission.
- *
- *  ---  Front vs back camera  -----------------------------------------------
- *
- *  Switching cameras means re-binding the same use cases against a different
- *  CameraSelector. We can't just "set" the camera on an existing binding;
- *  bindToLifecycle returns a new Camera handle each time.
- *
- * ============================================================================
- */
 package com.example.sensorscamerademo.camera
 
 import android.Manifest
@@ -148,45 +79,34 @@ private fun VideoContent(modifier: Modifier, snackbar: SnackbarHostState) {
     val lifecycleOwner = LocalLifecycleOwner.current
     val scope = rememberCoroutineScope()
 
-    // Which way the camera is pointing. Flipping this triggers re-binding
-    // in the LaunchedEffect below.
+    // Odabir kamere — promjena okida rebind u LaunchedEffectu
     var cameraSelector by remember { mutableStateOf(CameraSelector.DEFAULT_BACK_CAMERA) }
 
-    // PreviewView is a regular Android View — we host it in Compose with
-    // AndroidView. CameraX writes frames into the SurfaceProvider it exposes.
+    // PreviewView — CameraX View koji prikazuje camera feed
     val previewView = remember {
         PreviewView(context).apply {
             scaleType = PreviewView.ScaleType.FILL_CENTER
         }
     }
 
-    // The current VideoCapture use case. We store it so the record button
-    // can start a Recording against it.
     var videoCapture by remember { mutableStateOf<VideoCapture<Recorder>?>(null) }
-
-    // The active Recording, if one is in progress. Null when idle.
+    // Aktivno snimanje — null kad ne snimamo
     var recording by remember { mutableStateOf<Recording?>(null) }
-
-    // Wall-clock start time so we can show "0:08" while recording.
     var recordingStartMs by remember { mutableLongStateOf(0L) }
     var elapsedSeconds by remember { mutableStateOf("0") }
 
-    // Bind the camera. Runs once on first composition, and again every time
-    // `cameraSelector` changes (front/back flip). We need to unbind before
-    // re-binding because CameraX won't let the same use case be bound twice.
+    // Bind kamere — pokrene se na početku i svaki put kad se promijeni front/back
     LaunchedEffect(cameraSelector) {
         val cameraProvider = ProcessCameraProvider.getInstance(context).await()
         val preview = Preview.Builder().build().also {
             it.setSurfaceProvider(previewView.surfaceProvider)
         }
-        // Recorder is the VideoCapture backend. .build() returns a default
-        // quality selector that picks the highest available quality the
-        // device supports.
         val recorder = Recorder.Builder().build()
         val capture = VideoCapture.withOutput(recorder)
 
         try {
             cameraProvider.unbindAll()
+            // bindToLifecycle — 1 poziv veže kameru za lifecycle Activitya
             cameraProvider.bindToLifecycle(
                 lifecycleOwner,
                 cameraSelector,
@@ -195,14 +115,11 @@ private fun VideoContent(modifier: Modifier, snackbar: SnackbarHostState) {
             )
             videoCapture = capture
         } catch (t: Throwable) {
-            // Some devices (e.g. emulators) lack the requested camera entirely.
             videoCapture = null
             snackbar.showSnackbar("Could not start camera: ${t.message}")
         }
     }
 
-    // Tick once per second while a recording is active so the elapsed-time
-    // text stays current. Stops when `recording` becomes null again.
     LaunchedEffect(recording) {
         while (recording != null) {
             val seconds = (System.currentTimeMillis() - recordingStartMs) / 1000
@@ -212,9 +129,7 @@ private fun VideoContent(modifier: Modifier, snackbar: SnackbarHostState) {
         elapsedSeconds = "0"
     }
 
-    // When the screen leaves composition, make sure any in-flight recording
-    // is stopped. CameraX will also release the camera as the lifecycle
-    // owner moves to STOPPED, but the Recording object is ours to manage.
+    // Zaustavi snimanje kad korisnik napusti ekran
     DisposableEffect(Unit) {
         onDispose { recording?.stop() }
     }
@@ -225,7 +140,6 @@ private fun VideoContent(modifier: Modifier, snackbar: SnackbarHostState) {
             factory = { previewView }
         )
 
-        // Top-right camera-flip button.
         IconButton(
             onClick = {
                 cameraSelector = if (cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA) {
@@ -246,7 +160,6 @@ private fun VideoContent(modifier: Modifier, snackbar: SnackbarHostState) {
             )
         }
 
-        // Recording elapsed timer (only shown while a recording is active).
         if (recording != null) {
             Text(
                 text = "● ${elapsedSeconds}s",
@@ -260,7 +173,6 @@ private fun VideoContent(modifier: Modifier, snackbar: SnackbarHostState) {
             )
         }
 
-        // The big circular record/stop button.
         Column(
             modifier = Modifier
                 .align(Alignment.BottomCenter)
@@ -303,11 +215,7 @@ private fun VideoContent(modifier: Modifier, snackbar: SnackbarHostState) {
     }
 }
 
-/**
- * Build a MediaStore-backed output and start a recording. The returned
- * [Recording] is what we stop later. We enable audio because we requested
- * RECORD_AUDIO above.
- */
+// Pokreni snimanje — sprema u MediaStore (Movies/SensorsCameraDemo/)
 private fun startRecording(
     context: android.content.Context,
     videoCapture: VideoCapture<Recorder>,
@@ -317,9 +225,7 @@ private fun startRecording(
     val values = ContentValues().apply {
         put(MediaStore.Video.Media.DISPLAY_NAME, name)
         put(MediaStore.Video.Media.MIME_TYPE, "video/mp4")
-        // RELATIVE_PATH is the MediaStore way of placing files in a sub-
-        // folder under Movies/ — available on Q+ (API 29). For lower APIs
-        // the file just goes to the Movies root, which is fine for a demo.
+        // Scoped Storage (API 29+) — ne treba WRITE_EXTERNAL_STORAGE permissija
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             put(MediaStore.Video.Media.RELATIVE_PATH, "Movies/SensorsCameraDemo")
         }
@@ -339,10 +245,6 @@ private fun startRecording(
     }
 }
 
-/**
- * Tiny await helper — ProcessCameraProvider.getInstance returns a
- * ListenableFuture, which is awkward to use from Compose directly.
- */
 private suspend fun <T> com.google.common.util.concurrent.ListenableFuture<T>.await(): T =
     kotlinx.coroutines.suspendCancellableCoroutine { cont ->
         addListener({

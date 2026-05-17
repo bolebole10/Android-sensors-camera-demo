@@ -1,41 +1,3 @@
-/*
- * ============================================================================
- * Camera2ManualScreen — manual ISO / exposure / focus with the Camera2 API
- * ============================================================================
- *
- * This screen exists to contrast with the CameraX-based demos. Side-by-side
- * with VideoRecordingScreen and BarcodeScannerScreen, you can see how much
- * extra work raw Camera2 is. Things CameraX did for us that we do by hand
- * here:
- *
- *   1.  Opening the camera asynchronously through a CameraDevice.StateCallback
- *       (4 callbacks: onOpened, onDisconnected, onError, ...).
- *
- *   2.  Allocating and configuring an output Surface (a SurfaceTexture wired
- *       into a TextureView for the preview).
- *
- *   3.  Building a CameraCaptureSession against that surface, which has its
- *       *own* StateCallback (onConfigured, onConfigureFailed).
- *
- *   4.  Composing every preview frame as a CaptureRequest by hand —
- *       setting CONTROL_MODE, AE_MODE, AF_MODE, etc.
- *
- *   5.  Re-submitting that CaptureRequest as a repeating request to drive
- *       the preview. If we forget, the preview is just a static black frame.
- *
- *   6.  Releasing everything in the reverse order (session.close,
- *       device.close, thread.quitSafely) — there is no lifecycle helper.
- *
- * All of this is fairly mechanical and the same in every Camera2 sample on
- * developer.android.com; we are not doing anything weird. The point is that
- * CameraX collapses all of it into bindToLifecycle().
- *
- * Devices vary wildly in what manual control they expose. We check the
- * REQUEST_AVAILABLE_CAPABILITIES_MANUAL_SENSOR capability before showing the
- * manual sliders, and gracefully fall back to "Auto only" on devices that
- * don't support it.
- * ============================================================================
- */
 package com.example.sensorscamerademo.camera
 
 import android.Manifest
@@ -129,15 +91,13 @@ fun Camera2ManualScreen(onBack: () -> Unit) {
 private fun Camera2Content(modifier: Modifier) {
     val context = LocalContext.current
 
-    // The Camera2 API is callback-driven and not main-thread-friendly, so
-    // we shove all the camera calls onto a dedicated HandlerThread. This
-    // is the same pattern every Camera2 sample uses.
+    // Camera2 operacije moraju biti na pozadinskoj niti
     val cameraThread = remember {
         HandlerThread("Camera2Thread").apply { start() }
     }
     val cameraHandler = remember { Handler(cameraThread.looper) }
 
-    // Look up the back-facing camera and read its capabilities.
+    // Dohvati stražnju kameru i njene mogućnosti (ISO raspon, ekspozicija, fokus)
     val cameraInfo = remember {
         try {
             findBackCamera(context)
@@ -161,43 +121,29 @@ private fun Camera2Content(modifier: Modifier) {
 
     val supportsManual = cameraInfo.supportsManualSensor
 
-    // ---- UI state for the manual controls -----------------------------
     var autoMode by remember { mutableStateOf(true) }
-    // Default the sliders to sensible mid-range values so that flipping into
-    // manual mode gives a visible image instead of a black frame. The very
-    // bottom of the ISO/exposure ranges is far too dark for normal lighting.
+    // Početne vrijednosti slidera — sredina raspona da slika ne bude crna
     var iso by remember {
         val mid = (cameraInfo.isoRange.lower + cameraInfo.isoRange.upper) / 2
         mutableFloatStateOf(mid.coerceAtLeast(400).toFloat())
     }
     var exposureNs by remember {
-        // Aim for ~1/60s (≈16.7 ms) — a typical handheld shutter speed.
-        val target = 1_000_000_000L / 60
+        val target = 1_000_000_000L / 60  // ~1/60s
         mutableLongStateOf(
             target.coerceIn(cameraInfo.exposureRangeNs.lower, cameraInfo.exposureRangeNs.upper)
         )
     }
-    var focusDist by remember { mutableFloatStateOf(0f) } // 0 = infinity
+    var focusDist by remember { mutableFloatStateOf(0f) }  // 0 = beskonačnost
     var lastSavedUri by remember { mutableStateOf<String?>(null) }
 
-    // ---- Camera state held across recompositions ----------------------
     var cameraDevice by remember { mutableStateOf<CameraDevice?>(null) }
     var captureSession by remember { mutableStateOf<CameraCaptureSession?>(null) }
     var previewSurface by remember { mutableStateOf<Surface?>(null) }
     var imageReader by remember { mutableStateOf<ImageReader?>(null) }
-    val textureView = remember {
-        TextureView(context).apply {
-            // Picking the preview size is left simple here — we just use a
-            // 640x480 backing buffer for the SurfaceTexture. A production
-            // app would call getSupportedSizes and pick something matching
-            // the view aspect ratio.
-        }
-    }
+    // TextureView — ručni preview (CameraX koristi PreviewView umjesto ovoga)
+    val textureView = remember { TextureView(context) }
 
-    // Re-issue the repeating preview request whenever the user moves a
-    // slider. We build a fresh CaptureRequest each time and submit it as
-    // a repeating request — Camera2 has no notion of "patch the existing
-    // request", you always send a new one.
+    // Svaki put kad korisnik pomakne slider → novi CaptureRequest
     LaunchedEffect(autoMode, iso, exposureNs, focusDist, captureSession) {
         val session = captureSession ?: return@LaunchedEffect
         val device = cameraDevice ?: return@LaunchedEffect
@@ -211,18 +157,12 @@ private fun Camera2Content(modifier: Modifier) {
             focusDist = focusDist
         )
         try {
+            // Repeating request — kontinuirani preview (bez ovoga = crni ekran)
             session.setRepeatingRequest(request, null, cameraHandler)
-        } catch (_: Throwable) {
-            // Ignore — the session may be closing as the user navigates away.
-        }
+        } catch (_: Throwable) {}
     }
 
-    // Open the camera + create the capture session. This is the big
-    // callback chain that CameraX hides from us. Ordering matters:
-    //   1. TextureView's SurfaceTexture becomes available.
-    //   2. We open the camera device.
-    //   3. We create a session bound to the preview surface + ImageReader.
-    //   4. We start the repeating preview request.
+    // Otvaranje kamere — lanac callbackova koji CameraX radi umjesto nas
     DisposableEffect(Unit) {
         val manager = context.getSystemService(Context.CAMERA_SERVICE) as CameraManager
 
@@ -243,9 +183,7 @@ private fun Camera2Content(modifier: Modifier) {
             manager.openCamera(cameraInfo.cameraId, object : CameraDevice.StateCallback() {
                 override fun onOpened(device: CameraDevice) {
                     cameraDevice = device
-                    // Create the capture session against both surfaces:
-                    // the preview surface (always feeding the TextureView)
-                    // and the ImageReader (used only when we take a photo).
+                    // Sessija s dva outputa: preview surface + ImageReader (za foto)
                     val outputs = listOf(surface, reader.surface)
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
                         val executor = java.util.concurrent.Executor { cameraHandler.post(it) }
@@ -279,14 +217,10 @@ private fun Camera2Content(modifier: Modifier) {
             override fun onSurfaceTextureDestroyed(t: SurfaceTexture): Boolean = true
             override fun onSurfaceTextureUpdated(t: SurfaceTexture) = Unit
         }
-        // If the view already had a surface (recreation), skip the listener
-        // path and open immediately.
         textureView.surfaceTexture?.let(::openCameraOnceSurfaceReady)
 
         onDispose {
-            // Tear down in reverse order. Forget any of these calls and
-            // either the next screen can't open the camera, or the camera
-            // service may leak. CameraX would do this for us.
+            // Zatvaranje u obrnutom redoslijedu — CameraX bi ovo napravio za nas
             try { captureSession?.close() } catch (_: Throwable) {}
             captureSession = null
             try { cameraDevice?.close() } catch (_: Throwable) {}
@@ -526,28 +460,24 @@ private fun findBackCamera(context: Context): BackCamera? {
         val facing = ch.get(CameraCharacteristics.LENS_FACING) ?: continue
         if (facing != CameraCharacteristics.LENS_FACING_BACK) continue
 
+        // Provjera podržava li uređaj manual mode
         val capabilities = ch.get(CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES) ?: IntArray(0)
         val supportsManual = capabilities.any {
             it == CameraMetadata.REQUEST_AVAILABLE_CAPABILITIES_MANUAL_SENSOR
         }
 
+        // Dohvat raspona parametara iz CameraCharacteristics
         val isoRange = ch.get(CameraCharacteristics.SENSOR_INFO_SENSITIVITY_RANGE)
             ?: Range(100, 800)
         val rawExpRange = ch.get(CameraCharacteristics.SENSOR_INFO_EXPOSURE_TIME_RANGE)
             ?: Range(1_000_000L, 100_000_000L)
-        // The hardware exposure range often goes up to 30 s. Setting a multi-
-        // second exposure makes the preview update at less than 1 frame per
-        // second, which looks like the app has frozen. We cap the upper bound
-        // at 125 ms (1/8 s) — slow enough to clearly show motion blur, fast
-        // enough that the preview stays interactive.
+        // Ograničavamo na max 125 ms da preview ne izgleda kao da je zamrznut
         val expRange = Range(
             rawExpRange.lower,
             minOf(rawExpRange.upper, 125_000_000L).coerceAtLeast(rawExpRange.lower)
         )
         val minFocus = ch.get(CameraCharacteristics.LENS_INFO_MINIMUM_FOCUS_DISTANCE) ?: 0f
 
-        // Smallest JPEG size that's at least 1280x720 — keeps the test
-        // capture quick on slower devices.
         val configMap = ch.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP)
         val jpegSize = configMap
             ?.getOutputSizes(android.graphics.ImageFormat.JPEG)
@@ -580,11 +510,7 @@ private fun buildPreviewRequest(
     return builder.build()
 }
 
-/**
- * Sets the auto-vs-manual flags on a CaptureRequest builder. In auto mode
- * we hand control back to the camera; in manual mode we explicitly switch
- * off AE/AF and dial in our sensor values.
- */
+// Postavljanje auto/manual kontrola na CaptureRequest
 private fun applyControls(
     builder: CaptureRequest.Builder,
     autoMode: Boolean,
@@ -597,9 +523,11 @@ private fun applyControls(
         builder.set(CaptureRequest.CONTROL_AE_MODE, CameraMetadata.CONTROL_AE_MODE_ON)
         builder.set(CaptureRequest.CONTROL_AF_MODE, CameraMetadata.CONTROL_AF_MODE_CONTINUOUS_PICTURE)
     } else {
+        // Isključi sve auto kontrole
         builder.set(CaptureRequest.CONTROL_MODE, CameraMetadata.CONTROL_MODE_OFF)
         builder.set(CaptureRequest.CONTROL_AE_MODE, CameraMetadata.CONTROL_AE_MODE_OFF)
         builder.set(CaptureRequest.CONTROL_AF_MODE, CameraMetadata.CONTROL_AF_MODE_OFF)
+        // Ručne vrijednosti: ISO, ekspozicija (ns), fokus (diopt., 0=∞)
         builder.set(CaptureRequest.SENSOR_SENSITIVITY, iso)
         builder.set(CaptureRequest.SENSOR_EXPOSURE_TIME, exposureNs)
         builder.set(CaptureRequest.LENS_FOCUS_DISTANCE, focusDist)
@@ -610,7 +538,7 @@ private fun sessionStateCallback(
     onConfigured: (CameraCaptureSession) -> Unit
 ) = object : CameraCaptureSession.StateCallback() {
     override fun onConfigured(session: CameraCaptureSession) { onConfigured(session) }
-    override fun onConfigureFailed(session: CameraCaptureSession) { /* surface the error if needed */ }
+    override fun onConfigureFailed(session: CameraCaptureSession) {}
 }
 
 private fun takePhoto(
@@ -625,9 +553,7 @@ private fun takePhoto(
     focusDist: Float,
     onSaved: (String) -> Unit
 ) {
-    // Snapshot listener: when the ImageReader has the JPEG, write it
-    // to MediaStore. ImageReader.OnImageAvailableListener is one-shot
-    // for our purposes, so we reset it after the file is saved.
+    // Kad ImageReader primi JPEG → spremi u MediaStore
     reader.setOnImageAvailableListener({ r ->
         val image = r.acquireLatestImage() ?: return@setOnImageAvailableListener
         try {
@@ -651,8 +577,6 @@ private fun takePhoto(
             request: CaptureRequest,
             result: TotalCaptureResult
         ) {
-            // Inspect result.get(CaptureResult.SENSOR_SENSITIVITY) etc. here
-            // if you want to surface the values the sensor actually used.
             @Suppress("UNUSED_VARIABLE")
             val achievedIso = result.get(CaptureResult.SENSOR_SENSITIVITY)
         }

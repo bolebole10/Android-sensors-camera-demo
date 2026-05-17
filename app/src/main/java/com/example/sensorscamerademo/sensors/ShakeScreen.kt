@@ -31,15 +31,6 @@ import com.example.sensorscamerademo.ui.DemoScaffold
 import com.example.sensorscamerademo.ui.ExplanationCard
 import kotlin.math.sqrt
 
-/**
- * Shake-to-clear demo. Uses TYPE_LINEAR_ACCELERATION, a fused virtual
- * sensor that subtracts gravity from the raw accelerometer signal. A
- * still device therefore reads near zero on all axes, which makes
- * shake detection a simple threshold check.
- *
- * To avoid counting one physical shake as several events, we ignore any
- * spike that happens within the 500 ms cooldown after the previous one.
- */
 @Composable
 fun ShakeScreen(onBack: () -> Unit) {
     DemoScaffold(title = "Shake to Clear", onBack = onBack) { modifier ->
@@ -60,12 +51,15 @@ fun ShakeScreen(onBack: () -> Unit) {
 
         DisposableEffect(Unit) {
             val manager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
+            // LINEAR_ACCELERATION = ubrzanje BEZ gravitacije → miran uređaj čita ≈ 0
             val sensor = manager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION)
             val listener = object : SensorEventListener {
                 override fun onSensorChanged(event: SensorEvent) {
                     val (x, y, z) = event.values
+                    // Ukupna magnituda ubrzanja: √(x² + y² + z²)
                     val magnitude = sqrt(x * x + y * y + z * z)
                     val now = System.currentTimeMillis()
+                    // Ako magnituda > prag I prošlo je dovoljno vremena od zadnjeg shakea
                     if (magnitude > SHAKE_THRESHOLD && now - lastShakeAt > COOLDOWN_MS) {
                         count += 1
                         lastShakeAt = now
@@ -96,24 +90,15 @@ fun ShakeScreen(onBack: () -> Unit) {
             )
             Button(onClick = { count = 0 }) { Text("Reset") }
 
-            ExplanationCard(
-                text = "Linear acceleration excludes gravity, so a still device reads near " +
-                    "zero on all axes. We detect a shake by checking when total acceleration " +
-                    "exceeds a threshold (${SHAKE_THRESHOLD.toInt()} m/s²), with a 500 ms " +
-                    "cooldown so one motion doesn't get counted multiple times."
-            )
         }
     }
 }
 
-private const val SHAKE_THRESHOLD = 12f
-private const val COOLDOWN_MS = 500L
+private const val SHAKE_THRESHOLD = 12f   // prag u m/s²
+private const val COOLDOWN_MS = 500L     // sprječava višestruko brojanje istog potresa
 
 @Suppress("DEPRECATION")
 private fun vibrate(context: Context) {
-    // VibratorManager replaced Vibrator on Android 12 (API 31). We pick
-    // the right one for the platform, and use VibrationEffect for the
-    // short haptic tap on API 26+.
     val vibrator: Vibrator = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
         val vm = context.getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as VibratorManager
         vm.defaultVibrator

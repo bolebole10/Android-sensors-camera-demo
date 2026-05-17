@@ -31,18 +31,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.sensorscamerademo.ui.DemoScaffold
-import com.example.sensorscamerademo.ui.ExplanationCard
 import kotlin.math.PI
 
-/**
- * Compass demo. Uses TYPE_ROTATION_VECTOR (a fused virtual sensor that
- * combines accelerometer, gyroscope and magnetometer) and converts the
- * rotation vector into an azimuth angle in degrees.
- *
- * We apply a low-pass filter to the azimuth because the raw reading is
- * jittery — even when the phone is sitting still, the value tends to
- * wobble by a few degrees.
- */
 @Composable
 fun CompassScreen(onBack: () -> Unit) {
     DemoScaffold(title = "Compass", onBack = onBack) { modifier ->
@@ -58,30 +48,30 @@ fun CompassScreen(onBack: () -> Unit) {
         }
 
         val context = LocalContext.current
-        // Smoothed azimuth in degrees, 0..360.
+        // Izgladeni azimut u stupnjevima (0-360)
         var azimuth by remember { mutableFloatStateOf(0f) }
 
-        // Custom DisposableEffect — we do the rotation-matrix math right
-        // inside the SensorEventListener rather than going through the
-        // generic rememberSensorValues helper, because we need to convert
-        // every event before storing it.
         DisposableEffect(Unit) {
             val manager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
+            // Virtualni senzor: fuzija akcelerometra + žiroskopa + magnetometra
             val sensor = manager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR)
             val rotationMatrix = FloatArray(9)
             val orientation = FloatArray(3)
             val listener = object : SensorEventListener {
                 override fun onSensorChanged(event: SensorEvent) {
+                    // Pretvori rotation vector → matrica rotacije → orijentacija
                     SensorManager.getRotationMatrixFromVector(rotationMatrix, event.values)
                     SensorManager.getOrientation(rotationMatrix, orientation)
-                    // orientation[0] is the azimuth in radians, range -π..π.
+                    // orientation[0] = azimut u radijanima (-π..π), pretvaramo u stupnjeve (0-360)
                     val rawDeg = ((Math.toDegrees(orientation[0].toDouble())
                         .toFloat()) + 360f) % 360f
+                    // Low-pass filter za glađenje šuma (pazi na prijelaz 359°→1°)
                     azimuth = lowPassAngle(azimuth, rawDeg, alpha = 0.15f)
                 }
                 override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) = Unit
             }
             sensor?.let { manager.registerListener(listener, it, SensorManager.SENSOR_DELAY_UI) }
+            // Odjavi listener kad composable ode s ekrana
             onDispose { manager.unregisterListener(listener) }
         }
 
@@ -106,12 +96,6 @@ fun CompassScreen(onBack: () -> Unit) {
                 style = MaterialTheme.typography.headlineMedium
             )
 
-            ExplanationCard(
-                text = "TYPE_ROTATION_VECTOR is a fused, virtual sensor — it combines the " +
-                    "accelerometer, gyroscope, and magnetometer to give a stable orientation. " +
-                    "We extract the azimuth (rotation around the vertical axis), convert it to " +
-                    "degrees, and rotate the dial. A simple low-pass filter smooths the jitter."
-            )
         }
     }
 }
@@ -127,11 +111,8 @@ private fun CompassDial(
         val centre = Offset(size.width / 2f, size.height / 2f)
         val radius = size.minDimension / 2f - 24.dp.toPx()
 
-        // The trick: rotate the whole dial by -azimuth so North always
-        // ends up at the top of the screen, while the arrow at the top
-        // stays still — effectively the dial spins, the arrow does not.
+        // Rotiramo cijeli brojčanik za -azimut → sjever uvijek na vrhu
         rotate(degrees = -azimuthDeg, pivot = centre) {
-            // Outer ring.
             drawCircle(
                 color = onSurface.copy(alpha = 0.5f),
                 radius = radius,
@@ -139,7 +120,6 @@ private fun CompassDial(
                 style = Stroke(width = 3f)
             )
 
-            // Tick marks every 30°.
             for (i in 0 until 12) {
                 val angleRad = i * 30 * (PI / 180f)
                 val cos = kotlin.math.cos(angleRad).toFloat()
@@ -160,9 +140,6 @@ private fun CompassDial(
                 )
             }
 
-            // Cardinal labels (N, E, S, W) — drawn through the platform
-            // canvas because Compose's drawText needs a TextMeasurer and
-            // we want to keep this demo simple.
             val labels = listOf("N" to -90f, "E" to 0f, "S" to 90f, "W" to 180f)
             val paint = android.graphics.Paint().apply {
                 color = if (onSurface == Color.White) android.graphics.Color.WHITE
@@ -172,7 +149,6 @@ private fun CompassDial(
                 isAntiAlias = true
                 isFakeBoldText = true
             }
-            // North label gets the primary color so it stands out.
             val northPaint = android.graphics.Paint(paint).apply {
                 color = android.graphics.Color.argb(
                     (primary.alpha * 255).toInt(),
@@ -192,8 +168,7 @@ private fun CompassDial(
             }
         }
 
-        // The red north-arrow stays fixed at the top of the dial regardless
-        // of rotation, because we draw it outside the rotate() block.
+        // Crvena strelica je IZVAN rotate() bloka → uvijek fiksna na vrhu
         val arrowTip = Offset(centre.x, centre.y - radius * 0.85f)
         val arrowBase1 = Offset(centre.x - 14.dp.toPx(), centre.y)
         val arrowBase2 = Offset(centre.x + 14.dp.toPx(), centre.y)

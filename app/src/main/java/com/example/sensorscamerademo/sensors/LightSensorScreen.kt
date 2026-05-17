@@ -20,15 +20,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.sensorscamerademo.ui.DemoScaffold
 
-/**
- * Light sensor demo. Reads ambient lux and uses it to swap the entire
- * screen between a light and a dark color scheme. The transition uses
- * [animateColorAsState] so the swap is smooth instead of a hard cut.
- *
- * Note: TYPE_LIGHT only delivers events when the lux value actually
- * changes — so if the surroundings are stable the listener may fire
- * once and then go quiet. That is the sensor working correctly.
- */
 @Composable
 fun LightSensorScreen(onBack: () -> Unit) {
     DemoScaffold(title = "Light → Auto Theme", onBack = onBack) { modifier ->
@@ -43,10 +34,13 @@ fun LightSensorScreen(onBack: () -> Unit) {
             return@DemoScaffold
         }
 
+        // TYPE_LIGHT daje osvjetljenje u luxima (samo values[0])
         val values by rememberSensorValues(Sensor.TYPE_LIGHT)
         val lux = values?.getOrNull(0) ?: 0f
+        // Ispod 50 lux = tamno, iznad = svijetlo
         val isDark = lux < LUX_THRESHOLD
 
+        // animateColorAsState → glatki prijelaz boja (400 ms) umjesto nagle promjene
         val background by animateColorAsState(
             targetValue = if (isDark) Color(0xFF101418) else Color(0xFFF7F4EE),
             animationSpec = tween(400),
@@ -82,30 +76,6 @@ fun LightSensorScreen(onBack: () -> Unit) {
                 color = foreground.copy(alpha = 0.7f)
             )
 
-            // We can't use ExplanationCard here because it pulls colors
-            // from MaterialTheme — and on this screen the whole point is
-            // that we're animating colors independently of the theme.
-            Card(
-                colors = CardDefaults.cardColors(
-                    containerColor = foreground.copy(alpha = 0.08f)
-                )
-            ) {
-                Column(modifier = Modifier.padding(16.dp)) {
-                    Text(
-                        text = "About this demo",
-                        style = MaterialTheme.typography.titleSmall,
-                        color = foreground
-                    )
-                    Text(
-                        text = "The ambient light sensor reports the brightness striking the " +
-                            "front of the device in lux. We compare it against a threshold and " +
-                            "swap the colors. animateColorAsState gives us the smooth fade " +
-                            "between the two color sets.",
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = foreground.copy(alpha = 0.85f)
-                    )
-                }
-            }
         }
     }
 }

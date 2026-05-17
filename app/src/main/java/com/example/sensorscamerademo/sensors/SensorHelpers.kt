@@ -12,22 +12,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
 
-/**
- * Subscribes to a sensor for as long as the calling composable is in the
- * composition. Mirrors the classic Activity onResume/onPause pair:
- *
- *  - The listener is registered when the composable enters composition,
- *    which corresponds to a screen becoming visible.
- *  - The listener is unregistered in [DisposableEffect]'s onDispose block
- *    when the composable leaves composition (screen hidden, navigated
- *    away, etc.), so the sensor stops draining the battery.
- *
- * This pattern is the same in every sensor demo in this app — point it
- * out during the presentation.
- *
- * Returns `null` if the device does not have the requested sensor, so
- * callers must handle the unsupported case.
- */
+// Reusable helper — registrira senzor dok je ekran vidljiv, odjavi kad ode
 @Composable
 fun rememberSensorValues(sensorType: Int): State<FloatArray?> {
     val context = LocalContext.current
@@ -38,26 +23,20 @@ fun rememberSensorValues(sensorType: Int): State<FloatArray?> {
         val sensor = manager.getDefaultSensor(sensorType)
         val listener = object : SensorEventListener {
             override fun onSensorChanged(event: SensorEvent) {
-                // copyOf() because the framework reuses the same array between
-                // callbacks — storing the reference would mean the value silently
-                // mutates underneath us.
+                // copyOf() obavezan — Android reciklira isti array između poziva
                 state.value = event.values.copyOf()
             }
-            override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) {
-                // Not used in these demos. Real apps may want to react to
-                // SENSOR_STATUS_UNRELIABLE for the compass, etc.
-            }
+            override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) = Unit
         }
         sensor?.let { manager.registerListener(listener, it, SensorManager.SENSOR_DELAY_UI) }
 
+        // Odjavi listener kad composable ode s ekrana (štedi bateriju)
         onDispose { manager.unregisterListener(listener) }
     }
     return state
 }
 
-/**
- * Returns true if the device exposes the given sensor type.
- */
+// Vraća true ako uređaj ima traženi senzor
 @Composable
 fun hasSensor(sensorType: Int): Boolean {
     val context = LocalContext.current
@@ -67,22 +46,17 @@ fun hasSensor(sensorType: Int): Boolean {
     }
 }
 
-/**
- * Simple first-order low-pass filter, used to smooth noisy sensor readings
- * such as the compass azimuth. `alpha` is how much weight to give the new
- * sample (0.0 = ignore new samples, 1.0 = no smoothing).
- *
- * For angles wrapping at 360° (the compass) we need to handle the wrap-around
- * — e.g. averaging 359° and 1° should yield 0°, not 180°. [lowPassAngle]
- * does that; [lowPass] is for plain scalar values.
- */
+// Low-pass filter za glađenje šumovitih vrijednosti (alpha = koliko težine dajemo novom uzorku)
 fun lowPass(previous: Float, sample: Float, alpha: Float = 0.15f): Float =
     previous + alpha * (sample - previous)
 
+// Low-pass za kutove — rješava problem prijelaza 359°→1° (prosjek mora biti 0°, ne 180°)
 fun lowPassAngle(previousDeg: Float, sampleDeg: Float, alpha: Float = 0.15f): Float {
     var diff = sampleDeg - previousDeg
+    // Korekcija za "kratki put" oko kruga
     if (diff > 180f) diff -= 360f
     if (diff < -180f) diff += 360f
     val next = previousDeg + alpha * diff
+    // Osiguraj raspon 0-360° (dupli modulo jer % može vratiti negativan broj)
     return (next % 360f + 360f) % 360f
 }
