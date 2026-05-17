@@ -21,7 +21,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.unit.dp
 import com.example.sensorscamerademo.ui.DemoScaffold
-import com.example.sensorscamerademo.ui.ExplanationCard
 import kotlin.math.abs
 
 
