@@ -219,6 +219,7 @@ private fun Camera2Content(modifier: Modifier) {
         }
         textureView.surfaceTexture?.let(::openCameraOnceSurfaceReady)
 
+        // POKAZATI
         onDispose {
             // Zatvaranje u obrnutom redoslijedu — CameraX bi ovo napravio za nas
             try { captureSession?.close() } catch (_: Throwable) {}
@@ -453,6 +454,7 @@ private data class BackCamera(
     val captureSize: Size
 )
 
+// POKAZATI
 private fun findBackCamera(context: Context): BackCamera? {
     val manager = context.getSystemService(Context.CAMERA_SERVICE) as CameraManager
     for (id in manager.cameraIdList) {
@@ -510,6 +512,7 @@ private fun buildPreviewRequest(
     return builder.build()
 }
 
+// POKAZATI
 // Postavljanje auto/manual kontrola na CaptureRequest
 private fun applyControls(
     builder: CaptureRequest.Builder,
