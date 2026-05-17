@@ -235,6 +235,7 @@ private fun startRecording(
         MediaStore.Video.Media.EXTERNAL_CONTENT_URI
     ).setContentValues(values).build()
 
+    @Suppress("MissingPermission")
     val recordingBuilder = videoCapture.output
         .prepareRecording(context, output)
         .withAudioEnabled()
