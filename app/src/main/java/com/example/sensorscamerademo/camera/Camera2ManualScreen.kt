@@ -59,16 +59,31 @@ import android.util.Range
 import android.util.Size
 import android.view.Surface
 import android.view.TextureView
+import androidx.compose.animation.animateContentSize
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.detectVerticalDragGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Slider
+import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -82,8 +97,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.example.sensorscamerademo.ui.DemoScaffold
 import com.example.sensorscamerademo.ui.ExplanationCard
@@ -279,117 +299,172 @@ private fun Camera2Content(modifier: Modifier) {
         }
     }
 
-    Column(
-        modifier = modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp)
+    var controlsExpanded by remember { mutableStateOf(true) }
+
+    Box(
+        modifier = modifier.fillMaxSize()
     ) {
-        // Preview surface.
-        Box(
+        // Full-screen camera preview
+        AndroidView(
+            modifier = Modifier.fillMaxSize(),
+            factory = { textureView }
+        )
+
+        // Translucent controls overlay at the bottom
+        Column(
             modifier = Modifier
+                .align(Alignment.BottomCenter)
                 .fillMaxWidth()
-                .aspectRatio(4f / 3f)
+                .clip(RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp))
+                .background(Color.Black.copy(alpha = 0.55f))
+                .animateContentSize()
+                .pointerInput(Unit) {
+                    detectVerticalDragGestures { _, dragAmount ->
+                        if (dragAmount > 30) controlsExpanded = false
+                        if (dragAmount < -30) controlsExpanded = true
+                    }
+                }
+                .padding(horizontal = 16.dp, vertical = 8.dp)
         ) {
-            AndroidView(
-                modifier = Modifier.fillMaxSize(),
-                factory = { textureView }
-            )
-        }
+            // Drag handle + toggle
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable { controlsExpanded = !controlsExpanded },
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                // Visual drag indicator
+                Box(
+                    modifier = Modifier
+                        .width(40.dp)
+                        .height(4.dp)
+                        .clip(RoundedCornerShape(2.dp))
+                        .background(Color.White.copy(alpha = 0.6f))
+                )
+            }
 
-        // Auto / manual toggle.
-        androidx.compose.foundation.layout.Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(12.dp)
-        ) {
-            Text(
-                text = if (autoMode) "Auto mode" else "Manual mode",
-                style = MaterialTheme.typography.titleMedium
-            )
-            Switch(
-                checked = !autoMode,
-                onCheckedChange = { autoMode = !it },
-                enabled = supportsManual
-            )
-            if (!supportsManual) {
+            Spacer(modifier = Modifier.height(4.dp))
+
+            // Collapsed: show minimal info
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
                 Text(
-                    "Device doesn't support manual sensor control",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.error
+                    text = if (autoMode) "Auto" else "Manual",
+                    color = Color.White,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 14.sp
+                )
+                Icon(
+                    imageVector = if (controlsExpanded) Icons.Default.KeyboardArrowDown
+                    else Icons.Default.KeyboardArrowUp,
+                    contentDescription = if (controlsExpanded) "Collapse" else "Expand",
+                    tint = Color.White
                 )
             }
-        }
 
-        // Sliders are disabled in auto mode or when the device doesn't
-        // support manual control.
-        val slidersEnabled = !autoMode && supportsManual
+            if (controlsExpanded) {
+                Spacer(modifier = Modifier.height(8.dp))
 
-        LabeledSlider(
-            label = "ISO",
-            value = iso,
-            valueRange = cameraInfo.isoRange.lower.toFloat()..cameraInfo.isoRange.upper.toFloat(),
-            display = iso.toInt().toString(),
-            enabled = slidersEnabled,
-            onValueChange = { iso = it }
-        )
-        LabeledSlider(
-            label = "Exposure",
-            value = exposureNs.toFloat(),
-            valueRange = cameraInfo.exposureRangeNs.lower.toFloat()..cameraInfo.exposureRangeNs.upper.toFloat(),
-            display = "%.2f ms".format(exposureNs / 1_000_000.0),
-            enabled = slidersEnabled,
-            onValueChange = { exposureNs = it.toLong() }
-        )
-        LabeledSlider(
-            label = "Focus",
-            value = focusDist,
-            valueRange = 0f..cameraInfo.minFocusDistance,
-            display = if (focusDist == 0f) "∞" else "%.2f".format(focusDist),
-            enabled = slidersEnabled,
-            onValueChange = { focusDist = it }
-        )
+                // Auto / manual toggle
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(12.dp)
+                ) {
+                    Text(
+                        text = if (autoMode) "Auto mode" else "Manual mode",
+                        color = Color.White,
+                        fontSize = 14.sp
+                    )
+                    Switch(
+                        checked = !autoMode,
+                        onCheckedChange = { autoMode = !it },
+                        enabled = supportsManual
+                    )
+                    if (!supportsManual) {
+                        Text(
+                            "No manual support",
+                            fontSize = 11.sp,
+                            color = Color(0xFFFF6B6B)
+                        )
+                    }
+                }
 
-        Button(
-            modifier = Modifier.fillMaxWidth(),
-            onClick = {
-                val session = captureSession ?: return@Button
-                val device = cameraDevice ?: return@Button
-                val reader = imageReader ?: return@Button
-                takePhoto(
-                    context = context,
-                    device = device,
-                    session = session,
-                    reader = reader,
-                    handler = cameraHandler,
-                    autoMode = autoMode,
-                    iso = iso.toInt(),
-                    exposureNs = exposureNs,
-                    focusDist = focusDist,
-                    onSaved = { uri -> lastSavedUri = uri }
+                val slidersEnabled = !autoMode && supportsManual
+
+                Spacer(modifier = Modifier.height(4.dp))
+
+                OverlaySlider(
+                    label = "ISO",
+                    value = iso,
+                    valueRange = cameraInfo.isoRange.lower.toFloat()..cameraInfo.isoRange.upper.toFloat(),
+                    display = iso.toInt().toString(),
+                    enabled = slidersEnabled,
+                    onValueChange = { iso = it }
                 )
+                OverlaySlider(
+                    label = "Ekspozicija",
+                    value = exposureNs.toFloat(),
+                    valueRange = cameraInfo.exposureRangeNs.lower.toFloat()..cameraInfo.exposureRangeNs.upper.toFloat(),
+                    display = "%.2f ms".format(exposureNs / 1_000_000.0),
+                    enabled = slidersEnabled,
+                    onValueChange = { exposureNs = it.toLong() }
+                )
+                OverlaySlider(
+                    label = "Fokus",
+                    value = focusDist,
+                    valueRange = 0f..cameraInfo.minFocusDistance,
+                    display = if (focusDist == 0f) "∞" else "%.2f diopt.".format(focusDist),
+                    enabled = slidersEnabled,
+                    onValueChange = { focusDist = it }
+                )
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                Button(
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color.White.copy(alpha = 0.2f),
+                        contentColor = Color.White
+                    ),
+                    onClick = {
+                        val session = captureSession ?: return@Button
+                        val device = cameraDevice ?: return@Button
+                        val reader = imageReader ?: return@Button
+                        takePhoto(
+                            context = context,
+                            device = device,
+                            session = session,
+                            reader = reader,
+                            handler = cameraHandler,
+                            autoMode = autoMode,
+                            iso = iso.toInt(),
+                            exposureNs = exposureNs,
+                            focusDist = focusDist,
+                            onSaved = { uri -> lastSavedUri = uri }
+                        )
+                    }
+                ) {
+                    Text("Capture")
+                }
+
+                lastSavedUri?.let {
+                    Text(
+                        "Saved: $it",
+                        fontSize = 11.sp,
+                        color = Color.White.copy(alpha = 0.7f)
+                    )
+                }
             }
-        ) {
-            Text("Capture")
         }
-
-        lastSavedUri?.let { Text("Saved: $it", style = MaterialTheme.typography.bodySmall) }
-
-        ExplanationCard(
-            text = "Camera2 lets us drive the sensor by hand:\n\n" +
-                "• ISO — how much the sensor amplifies light. Low ISO = clean image in bright " +
-                "light; high ISO = brighter shot in the dark, but noisier.\n\n" +
-                "• Exposure — how long each frame is exposed, in milliseconds. Longer = brighter " +
-                "but blurs motion; shorter = darker but freezes motion.\n\n" +
-                "• Focus — the lens focus distance, in diopters (1/metres). 0 = focused at " +
-                "infinity; larger values = focused closer to the camera.\n\n" +
-                "All of this is set per-frame via a CaptureRequest. CameraX hides this " +
-                "complexity but cannot expose manual sensor control."
-        )
     }
 }
 
 @Composable
-private fun LabeledSlider(
+private fun OverlaySlider(
     label: String,
     value: Float,
     valueRange: ClosedFloatingPointRange<Float>,
@@ -398,20 +473,38 @@ private fun LabeledSlider(
     onValueChange: (Float) -> Unit
 ) {
     Column(modifier = Modifier.fillMaxWidth()) {
-        androidx.compose.foundation.layout.Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            Text(label, style = MaterialTheme.typography.bodyMedium)
-            Text(display, style = MaterialTheme.typography.bodyMedium)
-        }
         Slider(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth().height(32.dp),
             value = value.coerceIn(valueRange.start, valueRange.endInclusive),
             valueRange = valueRange,
             enabled = enabled,
-            onValueChange = onValueChange
+            onValueChange = onValueChange,
+            colors = SliderDefaults.colors(
+                thumbColor = Color.White,
+                activeTrackColor = Color.White.copy(alpha = 0.8f),
+                inactiveTrackColor = Color.White.copy(alpha = 0.3f),
+                disabledThumbColor = Color.Gray,
+                disabledActiveTrackColor = Color.Gray.copy(alpha = 0.5f),
+                disabledInactiveTrackColor = Color.Gray.copy(alpha = 0.2f)
+            )
         )
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Text(
+                label,
+                color = Color.White.copy(alpha = 0.9f),
+                fontSize = 13.sp,
+                fontWeight = FontWeight.SemiBold
+            )
+            Text(
+                display,
+                color = Color.White.copy(alpha = 0.7f),
+                fontSize = 12.sp
+            )
+        }
+        Spacer(modifier = Modifier.height(4.dp))
     }
 }
 
