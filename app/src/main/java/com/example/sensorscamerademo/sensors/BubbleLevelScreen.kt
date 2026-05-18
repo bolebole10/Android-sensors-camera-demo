@@ -27,6 +27,7 @@ import kotlin.math.abs
 @Composable
 fun BubbleLevelScreen(onBack: () -> Unit) {
     DemoScaffold(title = "Bubble Level", onBack = onBack) { modifier ->
+        // POKAZATI
         // Fallback: ako uređaj nema gravity senzor, koristimo akcelerometar
         val hasGravity = hasSensor(Sensor.TYPE_GRAVITY)
         val sensorType = if (hasGravity) Sensor.TYPE_GRAVITY else Sensor.TYPE_ACCELEROMETER
@@ -37,6 +38,7 @@ fun BubbleLevelScreen(onBack: () -> Unit) {
             return@DemoScaffold
         }
 
+        // POKAZATI
         // values[0]=X, values[1]=Y, values[2]=Z — gravitacija po osima uređaja
         val x = values?.getOrNull(0) ?: 0f
         val y = values?.getOrNull(1) ?: 0f
@@ -112,6 +114,7 @@ private fun BubbleLevelCanvas(
             strokeWidth = 1.5f
         )
 
+        // POKAZATI
         // Normaliziramo X/Y u raspon -1..1 dijeljenjem s gravitacijom (9.81)
         val nx = (gravityX / 9.81f).coerceIn(-1f, 1f)
         val ny = (gravityY / 9.81f).coerceIn(-1f, 1f)
